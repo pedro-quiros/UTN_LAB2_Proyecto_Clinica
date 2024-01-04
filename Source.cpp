@@ -1,7 +1,7 @@
-//Proyecto: Sistema clinica
-///Autor: Hugo Orlando Benitez
-///Grupo 7.
-///Laboratorio de Computacion II -> UTN G.Pacheco.
+//Proyecto: Sistema Clinica
+///Autor: Pedro Quiros
+///Grupo 7
+///Laboratorio de Computacion II -  UTN FRGP
 
 #include <iostream>
 #include<cstring>
@@ -24,13 +24,13 @@ int main() {
     rlutil::setColor(rlutil::YELLOW);
     rlutil::setBackgroundColor(rlutil::BLUE);
 
-    char tit[40] = "MENU CLINICA MARIA AUXILIADORA";
+    char titulo[40] = "MENU CLINICA UTN";
 
     int opc;
     while (true) {
         system("cls");
 
-        recuadro(tit);
+        recuadro(titulo);
 
         cout << endl;
         rlutil::locate(51, 5);
@@ -38,20 +38,20 @@ int main() {
         rlutil::locate(51, 6);
         cout << "2. BAJA LOGICA TURNO/ESP." << endl;
         rlutil::locate(51, 7);
-        cout << "3. MODIFICAR TURNO/ESP " << endl;
+        cout << "3. MODIFICAR TURNO/ESP." << endl;
         rlutil::locate(51, 8);
         cout << "4. LISTAS DE TURNOS/ESP." << endl;
         rlutil::locate(51, 9);
-        cout << "5. CONSULTAS.           " << endl;
+        cout << "5. CONSULTAS." << endl;
         rlutil::locate(51, 10);
-        cout << "6. REPORTES.           " << endl;
+        cout << "6. REPORTES." << endl;
         rlutil::locate(51, 11);
-        cout << "0. SALIR DEL PROGRAMA " << endl;
+        cout << "0. SALIR DEL PROGRAMA." << endl;
         rlutil::locate(51, 12);
         cout << "-------------------------------" << endl;
         rlutil::locate(51, 13);
-        cout << "OPCION " << endl;
-        rlutil::locate(51, 14);
+        cout << char(175)<<" OPCION: ";
+
         cin >> opc;
 
 
@@ -73,15 +73,11 @@ int main() {
             break;
 
         case 0:
-            cout << endl;
             cout << "Saliendo del programa..." << endl;
-            cout << endl;
             return 0;
             break;
         default:
-            cout << endl;
-            cout << "Opcion no valida. Ociones validas 1,2,3,4,5,6 o 0-Salir." << endl;
-            cout << endl;
+            cout << "Opcion no valida. Opciones validas: 1, 2, 3, 4, 5, 6 o 0-Salir." << endl;
         }
         system("pause");
     }

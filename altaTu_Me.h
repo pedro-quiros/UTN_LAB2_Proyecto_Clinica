@@ -8,25 +8,27 @@
 
 void altas(){
 
-    int num;
-    char titulo2[50]="    SUB-MENU ALTAS ";
+    int opc;
+    char titulo[50]= "SUB-MENU ALTAS ";
 
-    recuadro(titulo2);
+    recuadro(titulo);
 
     rlutil::locate(51, 5);
-    cout<<"   1- ALTA turnos.            "<<endl;
+    cout<<"1. ALTA Turno."<<endl;
     rlutil::locate(51, 6);
-    cout<<"   2- ALTA Especilista        "<<endl;
+    cout<<"2. ALTA Especilista."<<endl;
     rlutil::locate(51, 7);
-    cout<<"   0- Volver.                 "<<endl;
-    rlutil::locate(52, 8);
-    cin>>num;
-
+    cout << "0. VOLVER." << endl;
+    rlutil::locate(51, 8);
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+    cin >> opc;
 
 
     system("cls");
 
-    switch(num){
+    switch(opc){
 
     case 1: altaTurno();
             break;

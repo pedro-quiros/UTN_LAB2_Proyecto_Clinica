@@ -31,64 +31,68 @@ int Especialista::getEspecialidad(){
 bool Especialista::getEstado(){
     return estado;
 }
+bool Especialista::cargarEspecialista() {
+    int numMatricula, numEspecialidad;
+
+    rlutil::locate(50, 1);
+    cout << "ALTA DE ESPECIALISTA:" << endl;
+   // rlutil::locate(20, 3);
+    cout << "INGRESAR EL NUMERO DE MATRICULA: ";
+    //rlutil::locate(55, 3);
+    cin >> numMatricula;
 
 
-bool Especialista::cargarEspecialista(){
-    int num1,num2;
+    setIdMatricula(numMatricula);
 
-    rlutil::locate(50,1);
-    cout<<"ALTA DE ESPECIALISTA:"<<endl;
-    rlutil::locate(20,3);
-    cout<<"INGRESAR EL NUMERO DE MATRICULA: ";
-    rlutil::locate(55,3);
-    cin>>num1;
-
-
-    setIdMatricula(num1);
-
-    cout<<endl;
+    cout << endl;
     system("pause");
     system("cls");
 
-    rlutil::locate(50,1);
-    cout<<"INGRESAR ESPECIALIDAD: "<<endl;
-    rlutil::locate(55,3);
-    cout<<"1-CLINICO. "<<endl;
-    rlutil::locate(55,4);
-    cout<<"2-UROLOGO. "<<endl;
-    rlutil::locate(55,5);
-    cout<<"3-GINECOLOGO. "<<endl;
-    rlutil::locate(55,6);
-    cout<<"4-Cardiologo. "<<endl;
-    rlutil::locate(55,7);
-    cout<<"5-Dermatologo. "<<endl;
-    rlutil::locate(55,8);
-    cin>>num2;
+    rlutil::locate(50, 1);
+    cout << "INGRESAR ESPECIALIDAD: " << endl;
+    rlutil::locate(51, 3);
+    cout << "1. Clinico." << endl;
+    rlutil::locate(51, 4);
+    cout << "2. Urologo." << endl;
+    rlutil::locate(51, 5);
+    cout << "3. Ginecologo." << endl;
+    rlutil::locate(51, 6);
+    cout << "4. Cardiologo." << endl;
+    rlutil::locate(51, 7);
+    cout << "5. Dermatologo." << endl;
+    rlutil::locate(51, 8);
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+
+    cin >> numEspecialidad;
+    cin.ignore();
 
 
-
-    if(num2<=0 || num2>5){
+    if (numEspecialidad <= 0 || numEspecialidad > 5) {
         system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
+        cout << "SALIENDO, MAL INGRESO..." << endl;
+        cout << endl;
         return false;
     }
 
-    setEspecialidad(num2);
+    setEspecialidad(numEspecialidad);
 
-    cout<<endl;
+    cout << endl;
     system("pause");
     system("cls");
 
-    rlutil::locate(50,1);
-    cout<<"INGRESAR LOS DATOS DEL ESPECIALISTA: "<<endl;
-    if(!Persona::cargarPersona()){
+    rlutil::locate(50, 1);
+    cout << "INGRESAR LOS DATOS DEL ESPECIALISTA: " << endl;
+    if (!Persona::cargarPersona()) {
         return false;
     }
-    estado=true;
+    estado = true;
 
     return true;
 }
+
+
 
 void Especialista::mostrarEspecialista(){
 

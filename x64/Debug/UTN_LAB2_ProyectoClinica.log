@@ -1,16 +1,3 @@
 ﻿  especialista.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  fecha.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  hora.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  paciente.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  Source.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  turno.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  _persona.cpp
-C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
-  UTN_LAB2_ProyectoClinica.vcxproj -> C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
+C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
+  UTN_LAB2_ProyectoClinica.vcxproj -> C:\Users\Pedro\Source\Repos\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
