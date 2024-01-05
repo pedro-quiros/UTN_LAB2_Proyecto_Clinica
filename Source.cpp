@@ -57,9 +57,6 @@ int main() {
         cargarEntero(opc);
 
 
-       // cin >> opc;
-
-
         system("cls");
 
         switch (opc) {
