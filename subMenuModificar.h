@@ -3,31 +3,29 @@
 
 #include"archivoControladores.h"
 #include"archivoControladoresEspecialista.h"
-
 #include"recuadro.h"
 
 void modificarTuME(){
+    int opcion;
+    char titulo[40] = "MENU MODIFICAR TURNO Y ESPECIALISTA";
+    recuadro(titulo);
 
-    int num;
-    char titulo4[50]= "     SUB-MENU MODIFICAR";
 
-    recuadro(titulo4);
-
-    cout<<endl;
     rlutil::locate(51, 5);
-    cout<<"   1- MODIFICAR turnos.            "<<endl;
+    cout << "1. MODIFICAR Turno." << endl;
     rlutil::locate(51, 6);
-    cout<<"   2- MODIFICAR Especilista.       "<<endl;
+    cout << "2. MODIFICAR Especialista." << endl;
     rlutil::locate(51, 7);
-    cout<<"   0- Volver.                      "<<endl;
+    cout << "0. Volver." << endl;
     rlutil::locate(51, 8);
-    cin>>num;
-
-     
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+    cargarEntero(opcion);
 
     system("cls");
 
-    switch(num){
+    switch(opcion){
 
     case 1: modificarTurno();
             break;
@@ -38,7 +36,5 @@ void modificarTuME(){
     }
 
 }
-
-
 
 #endif // SUBMENUMODIFICAR_H_INCLUDED

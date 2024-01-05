@@ -5,11 +5,12 @@
 #include"archivoControladoresEspecialista.h"
 
 #include"recuadro.h"
+#include"validaciones.h"
 
 void altas(){
 
     int opc;
-    char titulo[50]= "SUB-MENU ALTAS ";
+    char titulo[40]= "MENU ALTAS TURNO Y ESPECIALISTA";
 
     recuadro(titulo);
 
@@ -23,8 +24,7 @@ void altas(){
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);
     cout << char(175) << " OPCION: ";
-    cin >> opc;
-
+    cargarEntero(opc);
 
     system("cls");
 
@@ -37,9 +37,6 @@ void altas(){
     default:
             break;
     }
-
 }
-
-
 
 #endif // ALTATU_ME_H_INCLUDED

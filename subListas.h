@@ -8,31 +8,32 @@
 
 void subMenuLista(){
 
-    int num;
-    char titulo5[50]= "     SUB-MENU LISTAS";
+    int opcion;
+    char titulo[40] = "MENU LISTAS";
+    recuadro(titulo);
 
-    recuadro(titulo5);
-
-    cout<<endl;
+    cout << endl;
     rlutil::locate(51, 5);
-    cout<<"   1- Mostrar todos.          "<<endl;
+    cout << "1. MOSTRAR TODOS." << endl;
     rlutil::locate(51, 6);
-    cout<<"   2- Lista por Apellidos.    "<<endl;
+    cout << "2. Listar por Apellidos." << endl;
     rlutil::locate(51, 7);
-    cout<<"   3- Lista por DNI.          "<<endl;
+    cout << "3. Listar por DNI." << endl;
     rlutil::locate(51, 8);
-    cout<<"   4- Lista Menores Edad.     "<<endl;
+    cout << "4. Listar por Menores de Edad." << endl;
     rlutil::locate(51, 9);
-    cout<<"   5- Lista de Medico.        "<<endl;
+    cout << "5. Listar por Especialista." << endl;
     rlutil::locate(51, 10);
-    cout<<"   0- Volver.                 "<<endl;
+    cout << "0. Volver." << endl;
     rlutil::locate(51, 11);
-    cin>>num;
-
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 12);
+    cout << char(175) << " OPCION: ";
+    cargarEntero(opcion);
 
     system("cls");
 
-    switch(num){
+    switch(opcion){
 
     case 1: mostrarTodosPacientes();
             break;

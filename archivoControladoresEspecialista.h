@@ -3,12 +3,12 @@
 
 #include"especialista.h"
 #include"archivoClassEspecialista.h"
+#include "validaciones.h"
 
 //funciones prototipos
 void altaEspecialista();
 void bajaLogicaEspecialista();
 void modificarEspecialista();
-
 
 void altaEspecialista(){
     Especialista e,esp;
@@ -26,13 +26,14 @@ void altaEspecialista(){
         esp= archiEs.leerRegistro(i);
 
         if(esp.getEstado() && esp.getIdMatricula()==e.getIdMatricula()){
-                cout<<endl;
-                cout<<"ERROR, MATRICULA YA EXISTENTE."<<endl;
-                cout<<endl;
-                bandera=false;
+            system("cls");
+            cout << "[X] Error, La matricula ya se encuentra registrada." << endl;
+            cout<<endl;
+            bandera=false;
                 return;
         }
      }
+
      if(bandera){
         archiEs.grabarRegistro(e);
         cout<<endl;
@@ -43,13 +44,13 @@ void altaEspecialista(){
 
 
 void bajaLogicaEspecialista(){
-    int numero;
-    cout<<endl;
-    cout<<"ESPECIALISTA A DAR DE BAJA INGRESE MATRICULA: ";
-    cin>>numero;
-    cout<<endl;
+    int numMatricula;
+    rlutil::locate(51, 1);
+    cout << "ESPECIALISTA A DAR DE BAJA: " << endl;
+    cout << endl;
 
-
+    cout << "INGRESAR EL NUMERO DE MATRICULA: ";
+    cargarEntero(numMatricula);
 
    Especialista es;
    ArchivoEspecialista archiEs("especialista.dat");
@@ -77,34 +78,37 @@ void bajaLogicaEspecialista(){
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
-        if(es.getEstado() && es.getIdMatricula()==numero){
-
+        if(es.getEstado() && es.getIdMatricula()==numMatricula){
            es.mostrarEspecialista();
            bandera=false;
         }
     }
     if(bandera){
        system("cls");
+       cout << "[X] Error, La matricula no existe." << endl;
        cout<<endl;
-       cout<<"NO EXISTE LA MATRICULA."<<endl;
-       cout<<endl;
+       return;
+    }
 
-   return;
-   }
    int opc;
-   cout<<endl;
-   cout<<"DESEA BORRAR ESPECILISTA OPC= 1 / NO OPC= 0: ";
-   cin>>opc;
+   rlutil::locate(50, 7);
+   cout << "DESEA BORRAR ESPECIALISTA?" << endl;
+   rlutil::locate(51, 8);
+   cout << "1. Si." << endl;
+   rlutil::locate(51, 9);
+   cout << "0. No." << endl;
+   rlutil::locate(51, 10);
+   cout << "-------------------------------" << endl;
+   rlutil::locate(51, 11);
+   cout << char(175) << " OPCION: ";
 
-
-    cout<<endl;
-
-   system("cls");
-
-   if(opc!=1){
-      cout<<"SALIO..."<<endl;
-      cout<<endl;
-      return;
+   cargarEntero(opc);
+ 
+   if (opc != 1) {
+       system("cls");
+       cout << "[X] Error, saliendo del sistema." << endl;
+       cout << endl;
+       return;
    }
 
    bool bandera1=true;
@@ -112,12 +116,10 @@ void bajaLogicaEspecialista(){
    for(int i=0;i<contEs;i++){
       es= archiEs.leerRegistro(i);
 
-      if(opc==1 && es.getIdMatricula()==numero){
-
+      if(opc==1 && es.getIdMatricula()==numMatricula){
          es.setEstado(false);
-
          if(archiEs.sobreEscribir(es,i)){
-            cout<<"SE DIO DE BAJA... "<<endl;
+             cout << "[OK] Se dio de baja correctamente." << endl;
             bandera1=false;
             cout<<endl;
          }
@@ -164,33 +166,37 @@ void modificarEspecialista(){
         es= archiEs.leerRegistro(i);
 
         if(es.getEstado() && es.getIdMatricula()==numero){
-
            es.mostrarEspecialista();
            bandera=false;
         }
     }
     if(bandera){
        cout<<endl;
-
        system("cls");
-       cout<<"NO EXISTE LA MATRICULA."<<endl;
+       cout << "[X] Error, No existe la matricula." << endl;
        cout<<endl;
 
    return;
    }
    int opc;
-   cout<<endl;
-   cout<<"DESEA MODIFICAR ESPECILISTA OPC= 1 / NO OPC= 0: ";
-   cin>>opc;
+   rlutil::locate(50, 7);
+   cout << "DESEA MODIFICAR ESPECIALISTA?" << endl;
+   rlutil::locate(51, 8);
+   cout << "1. Si." << endl;
+   rlutil::locate(51, 9);
+   cout << "0. No." << endl;
+   rlutil::locate(51, 10);
+   cout << "-------------------------------" << endl;
+   rlutil::locate(51, 11);
+   cout << char(175) << " OPCION: ";
 
-
-    cout<<endl;
+   cargarEntero(opc);
 
    system("cls");
 
    if(opc!=1){
       system("cls");
-      cout<<"SALIO..."<<endl;
+      cout << "[X] Error, saliendo del sistema." << endl;
       cout<<endl;
       return;
    }

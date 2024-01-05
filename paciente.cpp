@@ -11,6 +11,7 @@ using namespace std;
 
 #include"especialista.h"
 #include"archivoClassEspecialista.h"
+#include "validaciones.h"
 
 void Paciente::setEspecialista(int e){
      especialista=e;
@@ -43,6 +44,7 @@ bool Paciente::getEstado(){
 }
 
 bool Paciente::cargarPaciente(){
+    int numEspecialidad;
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -56,7 +58,7 @@ bool Paciente::cargarPaciente(){
     }
 
     system("cls");
-
+    /*
     int num1;
 
     rlutil::locate(50, 1);
@@ -74,18 +76,35 @@ bool Paciente::cargarPaciente(){
     rlutil::locate(40, 8);
     cin>>num1;
 
-
-
+    system("cls");
+    */
+    rlutil::locate(50, 1);
+    cout << "INGRESAR ESPECIALIDAD PARA EL TURNO: " << endl;
+    rlutil::locate(51, 3);
+    cout << "1. Clinico." << endl;
+    rlutil::locate(51, 4);
+    cout << "2. Urologo." << endl;
+    rlutil::locate(51, 5);
+    cout << "3. Ginecologo." << endl;
+    rlutil::locate(51, 6);
+    cout << "4. Cardiologo." << endl;
+    rlutil::locate(51, 7);
+    cout << "5. Dermatologo." << endl;
+    rlutil::locate(51, 8);
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+    cargarEntero(numEspecialidad);
 
     system("cls");
 
-    if(num1<=0 || num1>5){
+    if(numEspecialidad<=0 || numEspecialidad>5){
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
         cout<<endl;
         return false;
     }
 
-    setEspecialista(num1);
+    setEspecialista(numEspecialidad);
 
     rlutil::locate(50, 1);
     cout<<"ESPECIALISTAS"<<endl;
@@ -104,7 +123,7 @@ bool Paciente::cargarPaciente(){
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
-       if(es.getEstado() && es.getEspecialidad()==num1){
+       if(es.getEstado() && es.getEspecialidad()==numEspecialidad){
             es.mostrarEspecialista();
         }
     }

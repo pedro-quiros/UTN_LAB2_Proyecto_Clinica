@@ -40,14 +40,10 @@ bool Especialista::cargarEspecialista() {
     cout << "ALTA DE ESPECIALISTA:" << endl;
     cout << endl;
     cout << "INGRESAR EL NUMERO DE MATRICULA: ";
-    //cargarEntero(numMatricula);
-   cin >> numMatricula;
-
+    cargarEntero(numMatricula);
 
     setIdMatricula(numMatricula);
 
-    //cout << endl;
-    //system("pause");
     system("cls");
 
     rlutil::locate(50, 1);
@@ -68,14 +64,10 @@ bool Especialista::cargarEspecialista() {
     cout << char(175) << " OPCION: ";
     cargarEntero(numEspecialidad);
 
-    cin >> numEspecialidad;
-    cin.ignore();
-
 
     if (numEspecialidad <= 0 || numEspecialidad > 5) {
         system("cls");
         cout << "SALIENDO, MAL INGRESO..." << endl;
-        cout << endl;
         return false;
     }
 

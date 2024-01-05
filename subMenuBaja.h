@@ -8,26 +8,27 @@
 
 void bajasTuME(){
 
-    int num;
-    char titulo3[50]= "     SUB-MENU BAJAS";
+    int opcion;
+    char titulo[40]= "MENU BAJAS TURNO Y ESPECIALISTA";
 
-    recuadro(titulo3);
+    recuadro(titulo);
 
     cout<<endl;
     rlutil::locate(51, 5);
-    cout<<"   1- BAJA turnos.            "<<endl;
+    cout<<"1. BAJA Turno."<<endl;
     rlutil::locate(51, 6);
-    cout<<"   2- BAJA Especialista.      "<<endl;
+    cout<<"2. BAJA Especialista."<<endl;
     rlutil::locate(51, 7);
-    cout<<"   0- Volver.                 "<<endl;
+    cout<<"0. Volver."<<endl;
     rlutil::locate(51, 8);
-    cin>>num;
-
-
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+    cargarEntero(opcion);
 
     system("cls");
 
-    switch(num){
+    switch(opcion){
 
     case 1: bajaLogicaTurno();
             break;
