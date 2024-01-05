@@ -4,6 +4,7 @@
 using namespace std;
 #include"hora.h"
 #include"rlutil.h"
+#include "validaciones.h"
 
 void Hora::setHora(int h){
      if(8<=h && h<=22){
@@ -28,8 +29,9 @@ bool Hora::cargarHora(){
     rlutil::locate(30, 3);
     cout<<"INGRESAR HORA DEL TURNO: ";
     rlutil::locate(56, 3);
-    cin>>hora;
+    cargarEntero(hora);
 
+ 
     if(hora<8 || hora>22){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
@@ -40,11 +42,9 @@ bool Hora::cargarHora(){
     rlutil::locate(30, ho);
     cout<<"INGRESAR MINUTOS: ";
     rlutil::locate(48, ho);
-    cin>>minuto;
+    cargarEntero(minuto);
     ho++;
-
     
-
     if(minuto<0 || minuto>59){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;

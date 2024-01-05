@@ -1,7 +1,0 @@
-#ifndef VISTAS_H_INCLUDED
-#define VISTAS_H_INCLUDED
-
-
-
-
-#endif // VISTAS_H_INCLUDED

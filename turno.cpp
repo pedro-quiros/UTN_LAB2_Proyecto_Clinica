@@ -8,6 +8,7 @@ using namespace std;
 #include"paciente.h"
 #include"archivoClassPacientess.h"
 #include"rlutil.h"
+#include "validaciones.h"
 
 void Turno::setFechaTurno(Fecha fe){
     fechaTurno=fe;
@@ -26,7 +27,7 @@ Hora Turno::getHoraTurno(){
     return horaTurno;
 }
 
-bool Turno::cargarTurno(int ma){
+bool Turno::cargarTurno(int matricula){
     Paciente p;
     ArchivoPaciente archiPa("turno.dat");
 
@@ -35,12 +36,12 @@ bool Turno::cargarTurno(int ma){
     int dia,mes;
 
     cout<<"INGRESE EL DIA DEL POSIBLE TURNO: ";
-    cin>>dia;
-
+    cargarEntero(dia);
+ 
 
 
     cout<<"INGRESAR EL MES: ";
-    cin>>mes;
+    cargarEntero(mes);
 
     cout<<endl;
 
@@ -68,7 +69,7 @@ bool Turno::cargarTurno(int ma){
 
         if(p.getEstado() && p.getTurnoAsignado().getFechaTurno().getDia()==dia
            && p.getTurnoAsignado().getFechaTurno().getMes()==mes
-           && p.getIdMatricula()==ma){
+           && p.getIdMatricula()==matricula){
 
            p.mostrarPaciente();
            bandera=false;

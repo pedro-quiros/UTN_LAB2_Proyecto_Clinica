@@ -146,10 +146,10 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="turno.cpp" />
     <ClCompile Include="validaciones.cpp" />
-    <ClCompile Include="_persona.cpp" />
+    <ClCompile Include="persona.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="altaTu_Me.h" />
+    <ClInclude Include="altaTurnoEspecialista.h" />
     <ClInclude Include="archivoClassEspecialista.h" />
     <ClInclude Include="archivoClassPacientess.h" />
     <ClInclude Include="archivoControladores.h" />
@@ -171,7 +171,6 @@
     <ClInclude Include="subMenuReporte.h" />
     <ClInclude Include="turno.h" />
     <ClInclude Include="validaciones.h" />
-    <ClInclude Include="vistas.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

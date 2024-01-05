@@ -41,7 +41,6 @@ bool Especialista::cargarEspecialista() {
     cout << endl;
     cout << "INGRESAR EL NUMERO DE MATRICULA: ";
     cargarEntero(numMatricula);
-
     setIdMatricula(numMatricula);
 
     system("cls");
@@ -67,7 +66,7 @@ bool Especialista::cargarEspecialista() {
 
     if (numEspecialidad <= 0 || numEspecialidad > 5) {
         system("cls");
-        cout << "SALIENDO, MAL INGRESO..." << endl;
+        cout << "[X] Opcion no valida. Saliendo del sistema." << endl;
         return false;
     }
 

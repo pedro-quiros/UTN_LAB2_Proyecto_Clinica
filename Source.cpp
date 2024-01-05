@@ -9,7 +9,7 @@
 using namespace std;
 
 #include"rlutil.h"
-#include"altaTu_Me.h"
+#include"altaTurnoEspecialista.h"
 #include"subListas.h"
 #include"subMenuBaja.h"
 #include"subMenuModificar.h"
@@ -22,7 +22,6 @@ using namespace std;
 #include <ctime>
 
 int main() {
-
     rlutil::setColor(rlutil::YELLOW);
     rlutil::setBackgroundColor(rlutil::BLUE);
 
@@ -38,8 +37,6 @@ int main() {
         rlutil::locate(85, 4);
         cout << put_time(localtime(&now), "%d/%m/%Y - %H:%Mhs") << endl;
 
-
-        cout << endl;
         rlutil::locate(51, 5);
         cout << "1. ALTAS TURNO/ESP." << endl;
         rlutil::locate(51, 6);
@@ -59,7 +56,6 @@ int main() {
         rlutil::locate(51, 13);
         cout << char(175)<<" OPCION: ";
         cargarEntero(opc);
-
 
         system("cls");
 

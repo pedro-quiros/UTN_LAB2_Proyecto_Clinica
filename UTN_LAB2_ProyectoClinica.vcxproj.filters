@@ -33,7 +33,7 @@
     <ClCompile Include="especialista.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="_persona.cpp">
+    <ClCompile Include="persona.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="validaciones.cpp">
@@ -41,7 +41,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="altaTu_Me.h">
+    <ClInclude Include="altaTurnoEspecialista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="archivoClassEspecialista.h">
@@ -102,9 +102,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="turno.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vistas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="validaciones.h">
