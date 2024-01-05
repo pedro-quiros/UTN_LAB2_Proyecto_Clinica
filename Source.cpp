@@ -5,9 +5,7 @@
 
 #include <iostream>
 #include<cstring>
-//#include<windows.h>
 #include <limits>
-
 using namespace std;
 
 #include"rlutil.h"
@@ -20,7 +18,8 @@ using namespace std;
 #include"recuadro.h"
 #include "validaciones.h"
 
-
+#include <chrono>
+#include <ctime>
 
 int main() {
 
@@ -28,12 +27,17 @@ int main() {
     rlutil::setBackgroundColor(rlutil::BLUE);
 
     char titulo[40] = "MENU CLINICA UTN";
-
     int opc;
     while (true) {
         system("cls");
-
         recuadro(titulo);
+
+        // Obtener el tiempo actual
+        auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+        // Mostrar hora con minutos en el formato dd/mm/yyyy HH:MM
+        rlutil::locate(85, 4);
+        cout << put_time(localtime(&now), "%d/%m/%Y - %H:%Mhs") << endl;
+
 
         cout << endl;
         rlutil::locate(51, 5);
@@ -75,14 +79,13 @@ int main() {
             break;
 
         case 0:
-            cout << "Saliendo del programa..." << endl;
+            cout << "[X] Saliendo del programa. Muchas gracias." << endl;
             return 0;
             break;
         default:
-            cout << "Opcion no valida. Opciones validas: 1, 2, 3, 4, 5, 6 o 0-Salir." << endl;
+            cout << "[X] Opcion no valida. Opciones validas: 1, 2, 3, 4, 5, 6 o 0-Salir." << endl;
         }
         system("pause");
     }
-
     return 0;
 }

@@ -73,8 +73,6 @@ bool Especialista::cargarEspecialista() {
 
     setEspecialidad(numEspecialidad);
 
-    //cout << endl;
-    //system("pause");
     system("cls");
 
     rlutil::locate(50, 1);

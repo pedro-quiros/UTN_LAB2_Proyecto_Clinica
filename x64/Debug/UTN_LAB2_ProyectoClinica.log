@@ -1,3 +1,1 @@
-﻿  Source.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(577,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  UTN_LAB2_ProyectoClinica.vcxproj -> C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
+﻿

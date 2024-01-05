@@ -58,26 +58,7 @@ bool Paciente::cargarPaciente(){
     }
 
     system("cls");
-    /*
-    int num1;
 
-    rlutil::locate(50, 1);
-    cout<<" INGRESA NUMERO DE LA ESPECIALIDAD PARA EL TURNO: "<<endl;
-    rlutil::locate(40, 3);
-    cout<<"1- CLINICO. "<<endl;
-    rlutil::locate(40, 4);
-    cout<<"2- UROLOGO. "<<endl;
-    rlutil::locate(40, 5);
-    cout<<"3- GINECOLOGO. "<<endl;
-    rlutil::locate(40, 6);
-    cout<<"4- CARDIOLOGO. "<<endl;
-    rlutil::locate(40, 7);
-    cout<<"5- DERMATOLOGO."<<endl;
-    rlutil::locate(40, 8);
-    cin>>num1;
-
-    system("cls");
-    */
     rlutil::locate(50, 1);
     cout << "INGRESAR ESPECIALIDAD PARA EL TURNO: " << endl;
     rlutil::locate(51, 3);
