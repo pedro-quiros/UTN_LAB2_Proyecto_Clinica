@@ -16,9 +16,9 @@ void altas(){
     rlutil::locate(51, 5);
     cout<<"1. ALTA Turno."<<endl;
     rlutil::locate(51, 6);
-    cout<<"2. ALTA Especilista."<<endl;
+    cout<<"2. ALTA Especialista."<<endl;
     rlutil::locate(51, 7);
-    cout << "0. VOLVER." << endl;
+    cout << "0. Volver." << endl;
     rlutil::locate(51, 8);
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);

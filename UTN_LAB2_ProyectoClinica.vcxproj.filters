@@ -36,6 +36,9 @@
     <ClCompile Include="_persona.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="validaciones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="altaTu_Me.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vistas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validaciones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

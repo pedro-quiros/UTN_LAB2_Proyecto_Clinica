@@ -27,7 +27,7 @@ void altaEspecialista(){
 
         if(esp.getEstado() && esp.getIdMatricula()==e.getIdMatricula()){
                 cout<<endl;
-                cout<<"NO SE GUARDO MATRICULA YA EXISTENTE..."<<endl;
+                cout<<"ERROR, MATRICULA YA EXISTENTE."<<endl;
                 cout<<endl;
                 bandera=false;
                 return;
@@ -36,7 +36,7 @@ void altaEspecialista(){
      if(bandera){
         archiEs.grabarRegistro(e);
         cout<<endl;
-        cout<<"SE GUARDO CORRECTAMENTE..."<<endl;
+        cout<<"SE GUARDO CORRECTAMENTE."<<endl;
         cout<<endl;
      }
 }

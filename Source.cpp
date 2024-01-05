@@ -18,6 +18,9 @@ using namespace std;
 #include"consulta.h"
 #include"subMenuReporte.h"
 #include"recuadro.h"
+#include "validaciones.h"
+
+
 
 int main() {
 
@@ -51,8 +54,10 @@ int main() {
         cout << "-------------------------------" << endl;
         rlutil::locate(51, 13);
         cout << char(175)<<" OPCION: ";
+        cargarEntero(opc);
 
-        cin >> opc;
+
+       // cin >> opc;
 
 
         system("cls");

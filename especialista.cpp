@@ -6,6 +6,8 @@
 using namespace std;
 #include"especialista.h"
 #include"rlutil.h"
+#include "validaciones.h"
+
 
 void Especialista::setIdMatricula(int ma){
     idMatricula=ma;
@@ -36,16 +38,16 @@ bool Especialista::cargarEspecialista() {
 
     rlutil::locate(50, 1);
     cout << "ALTA DE ESPECIALISTA:" << endl;
-   // rlutil::locate(20, 3);
+    cout << endl;
     cout << "INGRESAR EL NUMERO DE MATRICULA: ";
-    //rlutil::locate(55, 3);
-    cin >> numMatricula;
+    //cargarEntero(numMatricula);
+   cin >> numMatricula;
 
 
     setIdMatricula(numMatricula);
 
-    cout << endl;
-    system("pause");
+    //cout << endl;
+    //system("pause");
     system("cls");
 
     rlutil::locate(50, 1);
@@ -64,6 +66,7 @@ bool Especialista::cargarEspecialista() {
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);
     cout << char(175) << " OPCION: ";
+    cargarEntero(numEspecialidad);
 
     cin >> numEspecialidad;
     cin.ignore();
@@ -78,8 +81,8 @@ bool Especialista::cargarEspecialista() {
 
     setEspecialidad(numEspecialidad);
 
-    cout << endl;
-    system("pause");
+    //cout << endl;
+    //system("pause");
     system("cls");
 
     rlutil::locate(50, 1);

@@ -6,6 +6,8 @@ using namespace std;
 #include"rlutil.h"
 #include"persona.h"
 #include"fecha.h"
+#include"validaciones.h"
+
 
 void cargarCadena(char *palabra, int tam){
     int i = 0;
@@ -18,6 +20,16 @@ void cargarCadena(char *palabra, int tam){
     fflush(stdin);
 }
 
+/*
+void cargarEntero(int& valor) {
+    while (!(cin >> valor)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        cout << "[X] Entrada no válida. Por favor ingrese un número entero: ";
+    }
+    cin.ignore();
+}*/
 
 const char* Persona::getNombre(){
     return _nombre;
@@ -57,7 +69,8 @@ bool Persona::cargarPersona(){
     rlutil::locate(30, 5);
     cout<<"INGRESAR DNI: ";
     rlutil::locate(44, 5);
-    cin>>_dni;
+    cargarEntero(_dni);
+    //cin>>_dni;
 
 
 
