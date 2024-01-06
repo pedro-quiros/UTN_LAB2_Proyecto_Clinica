@@ -15,10 +15,12 @@ void consultaHorariosOcupados();
 void consultaPorDni();
 void consultaEspecialistaDni();
 void consultaPorMatriculaES();
-void consultaPorMatriculaDiaHora();
 
 
 void consultaPacientePorMedico(){
+    char titulo[40] = "PACIENTES POR ESPECIALISTA";
+    recuadro(titulo);
+
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -29,7 +31,6 @@ void consultaPacientePorMedico(){
 
     int contPa= archiPa.contarRegistros();
 
-
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
@@ -38,7 +39,7 @@ void consultaPacientePorMedico(){
             const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
             cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -50,7 +51,7 @@ void consultaPacientePorMedico(){
                          << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -67,6 +68,8 @@ void consultaPacientePorMedico(){
 }
 
 void consultaPorDia(){
+    char titulo[40] = "PACIENTES POR DIA";
+
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -80,18 +83,20 @@ void consultaPorDia(){
     cout<<endl;
     int dia;
     cout<<"INGRESAR EL DIA: ";
-    cin>>dia;
+    cargarEntero(dia);
 
     cout<<endl;
 
     system("cls");
 
+    /*
     if(dia<=0 || dia>31){
         cout<<"SALIO..."<<endl;
         cout<<endl;
         return;
     }
-
+    */
+    recuadro(titulo);
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
@@ -100,7 +105,7 @@ void consultaPorDia(){
              const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
              cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -112,7 +117,7 @@ void consultaPorDia(){
                           << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -130,6 +135,7 @@ void consultaPorDia(){
 }
 
 void consultaPorEspecialidad(){
+    char titulo[40] = "PACIENTES POR ESPECIALIDAD";
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -141,42 +147,47 @@ void consultaPorEspecialidad(){
     int contPa= archiPa.contarRegistros();
 
     cout<<endl;
-    int esp;
-    rlutil::locate(50, 1);
-    cout<<"INGRESAR NUMERO DE ESPECIALIDAD: "<<endl;
-    rlutil::locate(55, 3);
-    cout<<"1-CLINICO. "<<endl;
-    rlutil::locate(55, 4);
-    cout<<"2-UROLOGO. "<<endl;
-    rlutil::locate(55, 5);
-    cout<<"3-GINECOLOGO. "<<endl;
-    rlutil::locate(55, 6);
-    cout<<"4-CARDIOLOGO. "<<endl;
-     rlutil::locate(55, 7);
-    cout<<"5-DERMATOLOGO. "<<endl;
-    rlutil::locate(55, 8);
-    cin>>esp;
+    int numEspecialidad;
 
 
+     rlutil::locate(50, 1);
+     cout << "INGRESAR ESPECIALIDAD: " << endl;
+     rlutil::locate(51, 3);
+     cout << "1. Clinico." << endl;
+     rlutil::locate(51, 4);
+     cout << "2. Urologo." << endl;
+     rlutil::locate(51, 5);
+     cout << "3. Ginecologo." << endl;
+     rlutil::locate(51, 6);
+     cout << "4. Cardiologo." << endl;
+     rlutil::locate(51, 7);
+     cout << "5. Dermatologo." << endl;
+     rlutil::locate(51, 8);
+     cout << "-------------------------------" << endl;
+     rlutil::locate(51, 9);
+     cout << char(175) << " OPCION: ";
+     cargarEntero(numEspecialidad);
 
-     if(esp<=0 || esp>5){
-        system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return;
-    }
+     
+     if (numEspecialidad <= 0 || numEspecialidad > 5) {
+         system("cls");
+         cout << "[X] Opcion no valida. Saliendo del sistema." << endl;
+         return;
+     }
+     
 
     system("cls");
+    recuadro(titulo);
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
-        if(es.getEstado() && es.getEspecialidad()==esp){
+        if(es.getEstado() && es.getEspecialidad()== numEspecialidad){
 
             const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
             cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -188,14 +199,14 @@ void consultaPorEspecialidad(){
                          << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
         for(int j=0;j<contPa;j++){
              pa= archiPa.leerRegistro(j);
 
              if(pa.getEstado() && es.getIdMatricula()==pa.getIdMatricula()
-                && pa.getEspecialista()==esp){
+                && pa.getEspecialista()== numEspecialidad){
 
                     pa.mostrarPaciente();
                 }
@@ -205,6 +216,7 @@ void consultaPorEspecialidad(){
 }
 
 void consultaHorariosOcupados(){
+    char titulo[40] = "PACIENTES POR HORARIO";
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -220,54 +232,48 @@ void consultaHorariosOcupados(){
 
     rlutil::locate(45, 1);
     cout<<"INGRESA DIA/MES/HORA LISTADO DE TODAS LAS CONSULTAS: "<<endl;
-    rlutil::locate(40, 3);
     cout<<"INGRESAR DIA: ";
-    rlutil::locate(55, 3);
-    cin>>dia;
+    cargarEntero(dia);
 
 
 
-
+    /*
      if(dia<=0 || dia>31){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
         cout<<endl;
         return;
     }
+    */
 
-    int esp3=4;
-    rlutil::locate(40, esp3);
+
     cout<<"INGRESAR MES: ";
-    rlutil::locate(55, esp3);
-    cin>>mes;
-    esp3++;
+cargarEntero(mes);
 
-
+/*
      if(mes<=0 || mes>12){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
         cout<<endl;
         return;
     }
+    */
 
-    rlutil::locate(40, esp3);
     cout<<"INGRESE HORA A CONSULTAR: ";
-    rlutil::locate(67, esp3);
-    cin>>hora;
-    esp3++;
+    cargarEntero(hora);
 
-
-
+    /*
      if(hora<0 || hora>24){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
         cout<<endl;
         return;
     }
-
+    */
     cout<<endl;
 
     system("cls");
+    recuadro(titulo);
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
@@ -277,7 +283,7 @@ void consultaHorariosOcupados(){
             const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
             cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -289,7 +295,7 @@ void consultaHorariosOcupados(){
                          << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -309,6 +315,7 @@ void consultaHorariosOcupados(){
 }
 
 void consultaPorDni(){
+    char titulo[40] = "TURNOS POR DNI DEL PACIENTE";
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -320,12 +327,13 @@ void consultaPorDni(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
-    int num;
+    
+    int dni;
     cout<<"INGRESAR DNI A BUSCAR CONSULTA: ";
-    cin>>num;
+    cargarEntero(dni);
 
     system("cls");
+recuadro(titulo);
 
      for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
@@ -335,7 +343,7 @@ void consultaPorDni(){
              const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
              cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -347,7 +355,7 @@ void consultaPorDni(){
                           << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -355,7 +363,7 @@ void consultaPorDni(){
              pa= archiPa.leerRegistro(j);
 
             if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
-               && pa.getDni()==num){
+               && pa.getDni()==dni){
 
                pa.mostrarPaciente();
             }
@@ -365,6 +373,7 @@ void consultaPorDni(){
 }
 
 void consultaEspecialistaDni(){
+    char titulo[40] = "TURNOS POR DNI DEL ESPECIALISTA";
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -376,15 +385,14 @@ void consultaEspecialistaDni(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
     int dni;
     cout<<"INGRESAR DNI DEL ESPECIALISTA: ";
-    cin>>dni;
+    cargarEntero(dni);
 
 
 
     system("cls");
-
+    recuadro(titulo);
       for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
@@ -393,7 +401,7 @@ void consultaEspecialistaDni(){
             const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
             cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -405,7 +413,7 @@ void consultaEspecialistaDni(){
                          << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -423,6 +431,7 @@ void consultaEspecialistaDni(){
 }
 
 void consultaPorMatriculaES(){
+    char titulo[40] = "TURNOS POR MATRICULA DEL ESPECIALISTA";
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
@@ -434,22 +443,23 @@ void consultaPorMatriculaES(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
-    int matri;
+    
+    int matricula;
     cout<<"INGRESAR MATRICULA DEL ESPECIALISTA: ";
-    cin>>matri;
-
+    cargarEntero(matricula);
     system("cls");
+
+   recuadro(titulo);
 
       for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
-        if(es.getEstado() && es.getIdMatricula()==matri){
+        if(es.getEstado() && es.getIdMatricula()==matricula){
 
             const int anchoColumna = 20;
 
             cout<<"\n\n";
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
 
             cout << left << setw(anchoColumna) << "ESPECIALIDAD"
@@ -461,7 +471,7 @@ void consultaPorMatriculaES(){
                          << "\n";
 
             es.mostrarEspecialista();
-            cout<<"--------------------------------------------------------------------";
+            cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
 
@@ -469,7 +479,7 @@ void consultaPorMatriculaES(){
              pa= archiPa.leerRegistro(j);
 
             if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
-               && es.getIdMatricula()==matri){
+               && es.getIdMatricula()==matricula){
 
                pa.mostrarPaciente();
             }
@@ -478,91 +488,5 @@ void consultaPorMatriculaES(){
      cout<<endl;
 }
 
-void consultaPorMatriculaDiaHora(){
-    Especialista es;
-    ArchivoEspecialista archiEs("especialista.dat");
-
-    int contEs= archiEs.contarRegistros();
-
-
-    Paciente pa;
-    ArchivoPaciente archiPa("turno.dat");
-
-    int contPa= archiPa.contarRegistros();
-
-    const int anchoColumna = 20;
-
-
-    cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                 << setw(anchoColumna) << "MATRICULA"
-                 << setw(anchoColumna) << "NOMBRE"
-                 << setw(anchoColumna) << "APELLIDO"
-                 << setw(15) << "DNI"
-                 << setw(0) << "FECHA NACIMIENTO"
-                 << "\n";
-
-    for(int i=0;i<contEs;i++){
-        es= archiEs.leerRegistro(i);
-
-        if(es.getEstado()){
-           es.mostrarEspecialista();
-        }
-    }
-
-    cout<<endl;
-    int matri,dia,mes,anio,hora,minuto;
-    cout<<"INGRESAR MATRICULA DEL ESPECIALISTA: ";
-    cin>>matri;
-
-
-    cout<<"INGRESAR DIA POSIBLE TURNO: ";
-    cin>>dia;
-
-    cout<<"INGRESAR MES POSIBLE TURNO: ";
-    cin>>mes;
-
-
-    cout<<"INGRESAR ANIO POSIBLE TURNO: ";
-    cin>>anio;
-
-
-
-    cout<<"INGRESAR HORA POSIBLE TURNO: ";
-    cin>>hora;
-
-
-    cout<<"INGESAR MINUTOS POSIBLE TURNO: ";
-    cin>>minuto;
-
-
-    cout<<endl;
-
-    bool bandera= true;
-
-        for(int i=0;i<contEs;i++){
-            es= archiEs.leerRegistro(i);
-
-            for(int j=0;j<contPa;j++){
-                 pa= archiPa.leerRegistro(j);
-
-                if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
-                   && es.getIdMatricula()==matri
-                   && pa.getTurnoAsignado().getFechaTurno().getDia()==dia
-                   && pa.getTurnoAsignado().getFechaTurno().getMes()==mes
-                   && pa.getTurnoAsignado().getFechaTurno().getAnio()==anio
-                   && pa.getTurnoAsignado().getHoraTurno().getHora()==hora
-                   && pa.getTurnoAsignado().getHoraTurno().getMinuto()==minuto){
-
-                 cout<<" DIA Y HORARIO OCUPADOS... "<<endl;
-                 bandera=false;
-
-                }
-            }
-        }
-        if(bandera){
-            cout<<" DIA Y HORA LIBRES..."<<endl;
-        }
-  cout<<endl;
-}
 
 #endif // LISTADOSCONTROLATURNO2_H_INCLUDED

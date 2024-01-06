@@ -24,7 +24,7 @@ void pacientesPorAnio(){
 
     int contPa= archiPa.contarRegistros();
 
-    int mes,anio,hastaMes,hastaAnio,ma;
+    int mes,anio,hastaMes,hastaAnio,matricula;
 
     rlutil::locate(50, 1);
     cout<<"ESPECIALISTAS: "<<endl;
@@ -48,17 +48,19 @@ void pacientesPorAnio(){
         }
     }
 
-    cout<<endl;
+    cout << endl;
     cout<<"INGRESAR MATRICULA DEL ESPECIALISTA: ";
-    cin>>ma;
+    cargarEntero(matricula);
+    cout << endl;
     cout<<"INGRESA DESDE QUE MES: ";
-    cin>>mes;
+    cargarEntero(mes);
     cout<<"INGRESA DESDE QUE ANIO: ";
-    cin>>anio;
+    cargarEntero(anio);
+    cout<<endl;
     cout<<"INGRESA HASTA QUE MES: ";
-    cin>>hastaMes;
+    cargarEntero(hastaMes);
     cout<<"INGRESA HASTA QUE ANIO: ";
-    cin>>hastaAnio;
+    cargarEntero(hastaAnio);
 
     int cont=0;
 
@@ -68,7 +70,7 @@ void pacientesPorAnio(){
         for(int j=0;j<contPa;j++){
             pa= archiPa.leerRegistro(j);
 
-           if(es.getIdMatricula()==pa.getIdMatricula() && es.getIdMatricula()==ma
+           if(es.getIdMatricula()==pa.getIdMatricula() && es.getIdMatricula()==matricula
               && pa.getTurnoAsignado().getFechaTurno().getMes()>=mes
               && pa.getTurnoAsignado().getFechaTurno().getAnio()>=anio
               && pa.getTurnoAsignado().getFechaTurno().getDia()<=hastaMes
@@ -79,7 +81,8 @@ void pacientesPorAnio(){
         }
     }
     cout<<endl;
-    cout<<"EN EL PERIODO INDICADO ATENDIO:  "<<cont<<endl;
+    cout << endl;
+    cout<<"EN EL PERIODO INDICADO ATENDIO: "<<cont<<" PACIENTES."<<endl;
     cout<<endl;
 
 }
@@ -91,18 +94,16 @@ void cantidadDeConsultaPaciente(){
     int contPa= archiPa.contarRegistros();
 
     cout<<endl;
-    int num;
+    int dni;
     cout<<"INGRESE EL DNI DEL PACIENTE: ";
-    cin>>num;
-
-
+    cargarEntero(dni);
 
     int cont=0;
 
     for(int i=0;i<contPa;i++){
         pa= archiPa.leerRegistro(i);
 
-        if(pa.getDni()==num){
+        if(pa.getDni()==dni){
 
             cont++;
         }
@@ -118,44 +119,62 @@ void cantidadPorEspecialidad(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
-    int num;
-
-    rlutil::locate(50,1);
-    cout<<"INGRESAR ESPECIALIDAD: "<<endl;
-    rlutil::locate(55,3);
-    cout<<"1- CLINICO. "<<endl;
-    rlutil::locate(55,4);
-    cout<<"2- UROLOGO. "<<endl;
-    rlutil::locate(55,5);
-    cout<<"3- GINECOLOGO. "<<endl;
-    rlutil::locate(55,6);
-    cout<<"4- CARDIOLOGO. "<<endl;
-    rlutil::locate(55,7);
-    cout<<"5- DERMATOLOGO. "<<endl;
-    rlutil::locate(55,8);
-
-    cin>>num;
 
 
+
+    cout << endl;
+    int numEspecialidad;
+
+
+    rlutil::locate(50, 1);
+    cout << "INGRESAR ESPECIALIDAD: " << endl;
+    rlutil::locate(51, 3);
+    cout << "1. Clinico." << endl;
+    rlutil::locate(51, 4);
+    cout << "2. Urologo." << endl;
+    rlutil::locate(51, 5);
+    cout << "3. Ginecologo." << endl;
+    rlutil::locate(51, 6);
+    cout << "4. Cardiologo." << endl;
+    rlutil::locate(51, 7);
+    cout << "5. Dermatologo." << endl;
+    rlutil::locate(51, 8);
+    cout << "-------------------------------" << endl;
+    rlutil::locate(51, 9);
+    cout << char(175) << " OPCION: ";
+    cargarEntero(numEspecialidad);
+
+
+    if (numEspecialidad <= 0 || numEspecialidad > 5) {
+        system("cls");
+        cout << "[X] Opcion no valida. Saliendo del sistema." << endl;
+        return;
+    }
+
+
+    system("cls");
+
+
+
+    /*
     if(num<=0 || num>5){
         system("cls");
         cout<<"SALIENDO, MAL INGRESO..."<<endl;
         cout<<endl;
         return;
     }
-
+    */
     system("cls");
 
     int cont=0;
-
-    cout<<"ESPECIALISTAS: "<<num<<endl;
+    //rlutil::locate(50, 1);
+    cout<<"ESPECIALIDAD: "<<numEspecialidad<<endl;
 
 
     for(int j=0;j<contPa;j++){
         pa= archiPa.leerRegistro(j);
 
-        if(pa.getEspecialista()==num && num!=0){
+        if(pa.getEspecialista()==numEspecialidad && numEspecialidad!=0){
 
             cont++;
         }

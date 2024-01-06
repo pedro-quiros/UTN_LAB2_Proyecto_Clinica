@@ -84,7 +84,7 @@ bool Turno::cargarTurno(int matricula){
     system("cls");
 
     rlutil::locate(50, 1);
-    cout<<"INGRESE FECHA DEL TURNO (DD/MM/YYY): "<<endl;
+    cout<<"INGRESE FECHA DEL TURNO (DD/MM/YYYY): "<<endl;
     if(!fechaTurno.cargarFecha()){
         return false;
     }

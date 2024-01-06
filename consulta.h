@@ -14,39 +14,28 @@ void consulta(){
 
     cout<<endl;
     rlutil::locate(51, 5);
-    cout<<"1. Consultas pacientes por especialista."<<endl;
+    cout<<"1. Pacientes por especialista."<<endl;
     rlutil::locate(51, 6);
-    cout<<"2. Consultas por dia."<<endl;
+    cout<<"2. Pacientes por dia."<<endl;
     rlutil::locate(51, 7);
-    cout<<"3. Consultas por especialidad."<<endl;
+    cout<<"3. Pacientes por especialidad."<<endl;
     rlutil::locate(51, 8);
-    cout<<"4. Consulta Dia/Mes/Hora Turnos todas/Esp."<<endl;
+    cout<<"4. Pacientes por Dia/Mes/Hora."<<endl;
     rlutil::locate(51, 9);
-    cout<<"5. Consultas por DNI del Paciente."<<endl;
+    cout<<"5. Turnos por DNI del Pacientes."<<endl;
     rlutil::locate(51, 10);
-    cout<<"6. Consultas por DNI del Especialista."<<endl;
+    cout<<"6. Turnos por DNI del Especialista."<<endl;
     rlutil::locate(51, 11);
-    cout<<"7. Consultas por MATRICULA Especialista."<<endl;
+    cout<<"7. Turnos por MATRICULA del Especialista."<<endl;
     rlutil::locate(51, 12);
-    cout<<"   8- Consulta (libre/ocup.) por MATR.D,M,A,HORA,M. "<<endl;
+    cout<<"0. Volver.                                "<<endl;
     rlutil::locate(51, 13);
-    cout<<"   0- Volver.                                "<<endl;
-    rlutil::locate(51, 14);
-    
-    rlutil::locate(51, 15);
     cout << "-------------------------------" << endl;
-    rlutil::locate(51, 16);
+    rlutil::locate(51, 14);
     cout << char(175) << " OPCION: ";
     cargarEntero(opcion);
 
 
-
-
-
-
-
-
-    
     system("cls");
 
     switch(opcion){
@@ -65,8 +54,6 @@ void consulta(){
     case 6: consultaEspecialistaDni();
             break;
     case 7: consultaPorMatriculaES();
-            break;
-    case 8: consultaPorMatriculaDiaHora();
             break;
     default:
             break;

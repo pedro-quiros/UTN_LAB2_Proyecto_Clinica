@@ -12,11 +12,11 @@ void reporte(){
     recuadro(titulo);
     cout<<endl;
     rlutil::locate(51, 5);
-    cout<<"1. Cant. pacientes atendidos en un intervalo."<<endl;
+    cout<<"1. Cant. pacientes atendidos en un intervalo de fechas."<<endl;
     rlutil::locate(51, 6);
     cout<<"2. Cant. consultas de un paciente por DNI."<<endl;
     rlutil::locate(51, 7);
-    cout<<"3. Cant. consultas por especialidad."<<endl;
+    cout<<"3. Cant. consultas por Especialidad."<<endl;
     rlutil::locate(51, 8);
     cout<<"0. Volver."<<endl;
     rlutil::locate(51, 9);
