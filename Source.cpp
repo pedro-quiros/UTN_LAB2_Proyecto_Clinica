@@ -22,8 +22,11 @@ using namespace std;
 #include <ctime>
 
 int main() {
+    //rlutil::setColor(rlutil::WHITE);
+    //rlutil::setBackgroundColor(rlutil::BLUE);
+
     rlutil::setColor(rlutil::YELLOW);
-    rlutil::setBackgroundColor(rlutil::BLUE);
+    rlutil::setBackgroundColor(rlutil::BLACK);
 
     char titulo[40] = "MENU CLINICA UTN";
     int opc;
