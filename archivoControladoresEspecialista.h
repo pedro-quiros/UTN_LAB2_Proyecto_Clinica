@@ -90,7 +90,7 @@ void bajaLogicaEspecialista(){
        return;
     }
 
-   int opc;
+   int opcion;
    rlutil::locate(50, 7);
    cout << "DESEA BORRAR ESPECIALISTA?" << endl;
    rlutil::locate(51, 8);
@@ -102,9 +102,9 @@ void bajaLogicaEspecialista(){
    rlutil::locate(51, 11);
    cout << char(175) << " OPCION: ";
 
-   cargarEntero(opc);
+   cargarEntero(opcion);
  
-   if (opc != 1) {
+   if (opcion != 1) {
        system("cls");
        cout << "[X] Error, saliendo del sistema." << endl;
        cout << endl;
@@ -116,7 +116,7 @@ void bajaLogicaEspecialista(){
    for(int i=0;i<contEs;i++){
       es= archiEs.leerRegistro(i);
 
-      if(opc==1 && es.getIdMatricula()==numMatricula){
+      if(opcion==1 && es.getIdMatricula()==numMatricula){
          es.setEstado(false);
          if(archiEs.sobreEscribir(es,i)){
              cout << "[OK] Se dio de baja correctamente." << endl;

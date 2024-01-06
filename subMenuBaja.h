@@ -6,7 +6,7 @@
 
 #include"recuadro.h"
 
-void bajasTuME(){
+void bajasTurnoEspecialista(){
 
     int opcion;
     char titulo[40]= "MENU BAJAS TURNO Y ESPECIALISTA";

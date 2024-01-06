@@ -5,7 +5,7 @@
 #include"archivoControladoresEspecialista.h"
 #include"recuadro.h"
 
-void modificarTuME(){
+void modificarTurnoEspecialista(){
     int opcion;
     char titulo[40] = "MENU MODIFICAR TURNO Y ESPECIALISTA";
     recuadro(titulo);

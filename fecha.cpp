@@ -34,10 +34,10 @@ int Fecha::getAnio(){
 }
 
 bool Fecha::cargarFecha(){
-    cout<<endl;
     int dia,mes,anio;
 
-    cout<<endl;
+    cout << endl;
+
     cout<<"DIA: ";
     cargarEntero(dia);
     setDia(dia);

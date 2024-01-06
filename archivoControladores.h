@@ -3,12 +3,11 @@
 
 #include"paciente.h"
 #include"archivoClassPacientess.h"
-
 #include"especialista.h"
 #include"archivoClassEspecialista.h"
-
 #include <iomanip>
 #include"rlutil.h"
+#include"validaciones.h"
 
 //funciones prototipos
 void altaTurno();
@@ -22,7 +21,6 @@ void altaTurno(){
      ArchivoPaciente archiPa("turno.dat");
 
      int contPa= archiPa.contarRegistros();
-
      if(!p.cargarPaciente()){
         return;
      }
@@ -31,7 +29,6 @@ void altaTurno(){
 
      for(int i=0;i<contPa;i++){
         pa= archiPa.leerRegistro(i);
-
 
         if(pa.getEstado() && pa.getIdMatricula()==p.getIdMatricula()
            && pa.getTurnoAsignado().getFechaTurno().getDia()==
@@ -46,7 +43,7 @@ void altaTurno(){
            p.getTurnoAsignado().getHoraTurno().getMinuto()
            ){
                 cout<<endl;
-                cout<<"NO SE GUARDO..."<<endl;
+                cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
                 cout<<endl;
                 bandera=false;
                 return;
@@ -64,7 +61,7 @@ void altaTurno(){
            p.getTurnoAsignado().getHoraTurno().getMinuto()
            ){
                 cout<<endl;
-                cout<<"NO SE GUARDO..."<<endl;
+                cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
                 cout<<endl;
                 bandera=false;
                 return;
@@ -74,7 +71,7 @@ void altaTurno(){
      if(bandera){
         archiPa.grabarRegistro(p);
         cout<<endl;
-        cout<<"SE GUARDO CORRECTAMENTE..."<<endl;
+        cout << "[OK] Los datos se guardaron correctamente." << endl;
         cout<<endl;
      }
 }
@@ -102,7 +99,6 @@ bool mostrarTodosPacientes(){
 
     while(fread(&e,sizeof e,1,p)==1){
         if(e.getEstado()){
-
             e.mostrarPaciente();
         }
     }
@@ -112,10 +108,9 @@ bool mostrarTodosPacientes(){
 }
 
 void bajaLogicaTurno(){
-    int numero;
-    cout<<endl;
-    cout<<"TURNO A DAR DE BAJA INGRESE DNI: ";
-    cin>>numero;
+    int dni;
+    cout<<"INGRESE DNI DEL PACIENTE: ";
+    cargarEntero(dni);
     cout<<endl;
 
    system("cls");
@@ -128,7 +123,7 @@ void bajaLogicaTurno(){
    const int anchoColumna = 20;
 
    rlutil::locate(50,1);
-   cout<<"PACIENTE A BORRAR: "<<endl;
+   cout<<"TURNO A CANCELAR: "<<endl;
    cout<<endl;
 
    cout << left << setw(anchoColumna) << "NOMBRE"
@@ -145,7 +140,7 @@ void bajaLogicaTurno(){
    for(int i=0;i<contPa;i++){
       pa= archiPa.leerRegistro(i);
 
-      if(pa.getEstado() && pa.getDni()==numero){
+      if(pa.getEstado() && pa.getDni()==dni){
 
         pa.mostrarPaciente();
         bandera=false;
@@ -153,46 +148,39 @@ void bajaLogicaTurno(){
    }
     if(bandera){
      cout<<endl;
-     cout<<"NO EXISTE EL DNI."<<endl;
+     cout << "[X] Error, El DNI no se encuentra registrado en la base de datos." << endl;
      cout<<endl;
 
    return;
    }
    cout<<"\n\n";
-   int opc,dia,mes,hora,minuto;
+   int opcion,dia,mes,hora,minuto;
 
-   cout<<"                       INGRESAR QUE TURNO DESEA BORRAR: "<<endl;
+   cout<<"INGRESAR QUE TURNO DESEA CANCELAR: "<<endl;
    cout<<"DIA: ";
-   cin>>dia;
-
-
-
+   cargarEntero(dia);
    cout<<"MES: ";
-   cin>>mes;
-
-
-
+   cargarEntero(mes);
+   cout << endl;
    cout<<"HORA: ";
-   cin>>hora;
-
-
+   cargarEntero(hora);
    cout<<"MINUTOS: ";
-   cin>>minuto;
+   cargarEntero(minuto);
 
+   cout << endl;
+   cout << "DESEA CANCELAR EL TURNO?" << endl;
+   cout << "1. Si." << endl;
+   cout << "0. No." << endl;
+   cout << "-------------------------------" << endl;
+   cout << char(175) << " OPCION: ";
 
+   cargarEntero(opcion);
 
-   cout<<endl;
-   cout<<"DESEA BORRARLO OPC= 1 / NO OPC= 0: ";
-   cin>>opc;
-
-
-   system("cls");
-
-   if(opc!=1){
-      system("cls");
-      cout<<"SALIO..."<<endl;
-      cout<<endl;
-      return;
+   if (opcion != 1) {
+       system("cls");
+       cout << "[X] Error, saliendo del sistema." << endl;
+       cout << endl;
+       return;
    }
 
    bool bandera1=true;
@@ -200,7 +188,7 @@ void bajaLogicaTurno(){
    for(int i=0;i<contPa;i++){
       pa= archiPa.leerRegistro(i);
 
-      if(opc==1 && pa.getDni()==numero
+      if(opcion==1 && pa.getDni()==dni
         && pa.getTurnoAsignado().getFechaTurno().getDia()==dia
         && pa.getTurnoAsignado().getFechaTurno().getMes()==mes
         && pa.getTurnoAsignado().getHoraTurno().getHora()==hora
@@ -223,14 +211,11 @@ void bajaLogicaTurno(){
 
 
 void modificarTurno(){
-      int numero;
-      cout<<endl;
-      cout<<"DNI QUE DESEA MODIFICAR TURNO: ";
-      cin>>numero;
-
-
-    cout<<endl;
-    system("cls");
+      int dni;
+      cout << "INGRESE DNI DEL PACIENTE: ";
+      cargarEntero(dni);
+      cout << endl;
+      system("cls");
 
    Paciente pa,p;
    ArchivoPaciente archiPa("turno.dat");
@@ -238,9 +223,8 @@ void modificarTurno(){
    int contPa= archiPa.contarRegistros();
 
    rlutil::locate(50,1);
-   cout<<"PACIENTE A MODIFICAR/TURNO: "<<endl;
+   cout<<"PACIENTE A MODIFICAR TURNO: "<<endl;
    cout<<endl;
-
    const int anchoColumna = 20;
 
    cout << left << setw(anchoColumna) << "NOMBRE"
@@ -257,7 +241,7 @@ void modificarTurno(){
    for(int i=0;i<contPa;i++){
       pa= archiPa.leerRegistro(i);
 
-      if(pa.getEstado() && pa.getDni()==numero){
+      if(pa.getEstado() && pa.getDni()==dni){
 
         pa.mostrarPaciente();
         bandera=false;
@@ -266,45 +250,43 @@ void modificarTurno(){
    if(bandera){
      system("cls");
      cout<<endl;
-     cout<<"NO EXISTE EL DNI."<<endl;
+     cout << "[X] Error, El DNI no se encuentra registrado en la base de datos." << endl;
      cout<<endl;
    return;
    }
    cout<<"\n\n";
-   int opc,dia,mes,hora,minuto;
 
-   cout<<"                       INGRESAR QUE TURNO DESEA MODIFICAR: "<<endl;
+
+
+   int opcion,dia,mes,hora,minuto;
+
+   cout<<"INGRESAR QUE TURNO DESEA MODIFICAR: "<<endl;
    cout<<"DIA: ";
-   cin>>dia;
-
-
-
+   cargarEntero(dia);
    cout<<"MES: ";
-   cin>>mes;
-
-
+   cargarEntero(mes);
+   cout << endl;
    cout<<"HORA: ";
-   cin>>hora;
-
-
-
+   cargarEntero(hora);
    cout<<"MINUTOS: ";
-   cin >> minuto;
+   cargarEntero(minuto);
 
+   cout << endl;
+   cout << "DESEA MODIFICAR EL TURNO?" << endl;
+   cout << "1. Si." << endl;
+   cout << "0. No." << endl;
+   cout << "-------------------------------" << endl;
+   cout << char(175) << " OPCION: ";
 
-   cout<<endl;
-   cout<<"DESEA MODIFICARLO OPC= 1 / NO OPC= 0: ";
-   cin>>opc;
+   cargarEntero(opcion);
 
-
-    cout<<endl;
-
-   if(opc!=1){
-      system("cls");
-      cout<<"SALIO..."<<endl;
-      cout<<endl;
-      return;
+   if (opcion != 1) {
+       system("cls");
+       cout << "[X] Error, saliendo del sistema." << endl;
+       cout << endl;
+       return;
    }
+
 
    bool bandera2=false;
    int pos;
@@ -312,7 +294,7 @@ void modificarTurno(){
    for(int i=0;i<contPa;i++){
       pa= archiPa.leerRegistro(i);
 
-      if(opc==1 && pa.getDni()==numero
+      if(opcion==1 && pa.getDni()==dni
         && pa.getTurnoAsignado().getFechaTurno().getDia()==dia
         && pa.getTurnoAsignado().getFechaTurno().getMes()==mes
         && pa.getTurnoAsignado().getHoraTurno().getHora()==hora
@@ -349,7 +331,7 @@ void modificarTurno(){
                p.getTurnoAsignado().getHoraTurno().getMinuto()
             ){
                 cout<<endl;
-                cout<<"NO SE GUARDO..."<<endl;
+                cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
                 cout<<endl;
                 bandera=false;
                 return;
@@ -368,7 +350,7 @@ void modificarTurno(){
            p.getTurnoAsignado().getHoraTurno().getMinuto()
            ){
            cout<<endl;
-           cout<<"NO SE GUARDO..."<<endl;
+           cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
            cout<<endl;
            bandera=false;
            return;
@@ -376,13 +358,11 @@ void modificarTurno(){
         }
         if(bandera){
           archiPa.sobreEscribir(p,pos);
-          cout<<"SE MODIFICO EL TURNO... "<<endl;
+          cout << "[OK] Los datos se guardaron correctamente." << endl;
           cout<<endl;
         }
     }
 }
-
-
 
 void listaDeMedico(){
     Especialista e;
@@ -404,7 +384,6 @@ void listaDeMedico(){
         e= archiEs.leerRegistro(i);
 
             if(e.getEstado()){
-
                 e.mostrarEspecialista();
             }
     }

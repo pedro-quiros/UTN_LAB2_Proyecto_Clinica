@@ -84,8 +84,6 @@ bool Especialista::cargarEspecialista() {
     return true;
 }
 
-
-
 void Especialista::mostrarEspecialista(){
 
      const int anchoColumna = 20;

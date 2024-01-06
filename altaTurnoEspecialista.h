@@ -3,13 +3,11 @@
 
 #include"archivoControladores.h"
 #include"archivoControladoresEspecialista.h"
-
 #include"recuadro.h"
 #include"validaciones.h"
 
-void altas(){
-
-    int opc;
+void altasTurnoEspecialista(){
+    int opcion;
     char titulo[40]= "MENU ALTAS TURNO Y ESPECIALISTA";
 
     recuadro(titulo);
@@ -24,11 +22,11 @@ void altas(){
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);
     cout << char(175) << " OPCION: ";
-    cargarEntero(opc);
+    cargarEntero(opcion);
 
     system("cls");
 
-    switch(opc){
+    switch(opcion){
 
     case 1: altaTurno();
             break;

@@ -32,7 +32,7 @@ int main() {
         recuadro(titulo);
 
         // Obtener el tiempo actual
-        auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+        auto now = chrono::system_clock::to_time_t(chrono::system_clock::now());
         // Mostrar hora con minutos en el formato dd/mm/yyyy HH:MM
         rlutil::locate(85, 4);
         cout << put_time(localtime(&now), "%d/%m/%Y - %H:%Mhs") << endl;
@@ -61,11 +61,11 @@ int main() {
 
         switch (opc) {
 
-        case 1: altas();
+        case 1: altasTurnoEspecialista();
             break;
-        case 2: bajasTuME();
+        case 2: bajasTurnoEspecialista();
             break;
-        case 3: modificarTuME();
+        case 3: modificarTurnoEspecialista();
             break;
         case 4: subMenuLista();
             break;
@@ -79,7 +79,8 @@ int main() {
             return 0;
             break;
         default:
-            cout << "[X] Opcion no valida. Opciones validas: 1, 2, 3, 4, 5, 6 o 0-Salir." << endl;
+            cout << "[X] Opcion no valida. Intente nuevamente." << endl;
+            cout << endl;
         }
         system("pause");
     }

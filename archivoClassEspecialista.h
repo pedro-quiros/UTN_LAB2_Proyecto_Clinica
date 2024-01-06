@@ -49,7 +49,4 @@ public:
     }
 };
 
-
-
-
 #endif // ARCHIVOCLASSESPECIALISTA_H_INCLUDED

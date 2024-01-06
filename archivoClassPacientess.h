@@ -1,7 +1,6 @@
 #ifndef ARCHIVOCLASSPACIENTESS_H_INCLUDED
 #define ARCHIVOCLASSPACIENTESS_H_INCLUDED
 
-
 class ArchivoPaciente{
 private:
     char nombre[30];
@@ -48,10 +47,5 @@ public:
         return escribio;
     }
 };
-
-
-
-
-
 
 #endif // ARCHIVOCLASSPACIENTESS_H_INCLUDED

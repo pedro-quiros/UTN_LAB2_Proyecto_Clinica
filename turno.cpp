@@ -38,8 +38,6 @@ bool Turno::cargarTurno(int matricula){
     cout<<"INGRESE EL DIA DEL POSIBLE TURNO: ";
     cargarEntero(dia);
  
-
-
     cout<<"INGRESAR EL MES: ";
     cargarEntero(mes);
 
@@ -86,18 +84,17 @@ bool Turno::cargarTurno(int matricula){
     system("cls");
 
     rlutil::locate(50, 1);
-    cout<<"INGRESE FECHA DEL TURNO: "<<endl;
+    cout<<"INGRESE FECHA DEL TURNO (DD/MM/YYY): "<<endl;
     if(!fechaTurno.cargarFecha()){
         return false;
     }
-
 
     cout<<endl;
     system("pause");
     system("cls");
 
     rlutil::locate(50, 1);
-    cout<<"INGRESE HORA DEL TURNO: "<<endl;
+    cout<<"INGRESE HORA DEL TURNO (HH:MM): "<<endl;
     if(!horaTurno.cargarHora()){
         return false;
     }
