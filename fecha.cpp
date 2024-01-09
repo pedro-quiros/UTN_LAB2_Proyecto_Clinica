@@ -39,13 +39,16 @@ bool Fecha::cargarFecha(){
     cout << endl;
 
     cout<<"DIA: ";
-    cargarEntero(dia);
+    cargarDia(dia);
+    //cargarEntero(dia);
     setDia(dia);
     cout<<"MES: ";
-    cargarEntero(mes);
+    cargarMes(mes);
+    //cargarEntero(mes);
     setMes(mes);
     cout<<"ANIO: ";
-    cargarEntero(anio);
+    cargarAnio(anio);
+    //cargarEntero(anio);
     setAnio(anio);
 
 

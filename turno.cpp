@@ -36,7 +36,9 @@ bool Turno::cargarTurno(int matricula){
     int dia,mes;
 
     cout<<"INGRESE EL DIA DEL POSIBLE TURNO: ";
-    cargarEntero(dia);
+    //cargarEntero(dia);
+    cargarDia(dia);
+
  
     cout<<"INGRESAR EL MES: ";
     cargarEntero(mes);
