@@ -28,7 +28,6 @@ void altaEspecialista(){
         if(esp.getEstado() && esp.getIdMatricula()==e.getIdMatricula()){
             system("cls");
             cout << "[X] Error, La matricula ya se encuentra registrada." << endl;
-            cout<<endl;
             bandera=false;
                 return;
         }
@@ -36,9 +35,7 @@ void altaEspecialista(){
 
      if(bandera){
         archiEs.grabarRegistro(e);
-        cout<<endl;
-        cout<<"SE GUARDO CORRECTAMENTE."<<endl;
-        cout<<endl;
+        cout << "[OK] El Especialista se guardo correctamente." << endl;
      }
 }
 
@@ -119,15 +116,13 @@ void bajaLogicaEspecialista(){
       if(opcion==1 && es.getIdMatricula()==numMatricula){
          es.setEstado(false);
          if(archiEs.sobreEscribir(es,i)){
-             cout << "[OK] Se dio de baja correctamente." << endl;
+            cout << "[OK] Se dio de baja correctamente." << endl;
             bandera1=false;
-            cout<<endl;
          }
       }
    }
    if(bandera1){
-        cout<<"NO SE PUDO DAR DE BAJA... "<<endl;
-        cout<<endl;
+       cout << "[X] Error, No se pudo dar de baja al Especialista." << endl;
     }
 }
 
@@ -171,13 +166,12 @@ void modificarEspecialista(){
         }
     }
     if(bandera){
-       cout<<endl;
        system("cls");
-       cout << "[X] Error, No existe la matricula." << endl;
+       cout << "[X] Error Matricula, No se encontraron registros.";
        cout<<endl;
-
-   return;
+       return;
    }
+
    int opc;
    rlutil::locate(50, 7);
    cout << "DESEA MODIFICAR ESPECIALISTA?" << endl;
@@ -214,17 +208,14 @@ void modificarEspecialista(){
            es.getIdMatricula()==numero){
 
           if(archiEs.sobreEscribir(e,i)){
-               cout<<"SE MODIFICO EL ESPECIALISTA... "<<endl;
-               bandera1=false;
-               cout<<endl;
+              cout << "[OK] El Especialista se modifico correctamente." << endl;
+              bandera1 = false;
         }
       }
    }
    if(bandera1){
-        cout<<"NO SE MODIFICO... "<<endl;
-        cout<<endl;
+       cout << "[X] Error, No se pudo modificar el Especialista." << endl;
     }
 }
-
 
 #endif // ARCHIVOCONTROLADORESESPECIALISTA_H_INCLUDED

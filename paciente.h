@@ -12,7 +12,6 @@ class Paciente:public Persona{
         bool estado;
 
     public:
-
         void setEspecialista(int);
         void setIdMatricula(int);
         void setTurnoAsignado(Turno);
@@ -25,10 +24,6 @@ class Paciente:public Persona{
 
         bool cargarPaciente();
         void mostrarPaciente();
-
 };
-
-
-
 
 #endif // PACIENTE_H_INCLUDED

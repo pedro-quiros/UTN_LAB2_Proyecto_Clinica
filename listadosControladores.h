@@ -3,13 +3,14 @@
 
 #include"archivoClassPacientess.h"
 #include"paciente.h"
-
+#include "validacion.h"
 //funciones prototipos
 void cargarCadenaPa(char *palabra, int tam);
 void listaPorApellido();
 void listarPorDni();
 void listarMenores();
 
+//funciones
 void cargarCadenaPa(char *palabra, int tam){
     int i = 0;
     fflush(stdin);
@@ -21,7 +22,6 @@ void cargarCadenaPa(char *palabra, int tam){
     fflush(stdin);
 }
 
-
 void listaPorApellido(){
     Paciente pa;
     ArchivoPaciente archiPa("turno.dat");
@@ -29,23 +29,10 @@ void listaPorApellido(){
     int contPa= archiPa.contarRegistros();
 
     char ape[20];
-    cout<<"Ingresar el apellido a buscar: ";
+    cout<<"Ingresar el Apellido de paciente a buscar: ";
     cargarCadenaPa(ape,19);
-    cout<<endl;
-
     system("cls");
-
-    const int anchoColumna = 20;
-
-    cout << left << setw(anchoColumna) << "NOMBRE"
-              << setw(anchoColumna) << "APELLIDO"
-              << setw(anchoColumna) << "DNI"
-              << setw(anchoColumna) << "ESPECIALISTA"
-              << setw(15) << "MATRICULA"
-              << setw(anchoColumna) << "TURNO"
-              << setw(anchoColumna) << "HORA"
-              << "\n";
-
+    imprimirEncabezadoPaciente();
     bool banderaListaApellido=true;
 
     for(int i=0;i<contPa;i++){
@@ -53,15 +40,13 @@ void listaPorApellido(){
 
         if(pa.getEstado() && strcmp(pa.getApellido(),ape)==0){
             pa.mostrarPaciente();
-
             banderaListaApellido=false;
         }
     }
     if(banderaListaApellido){
-        cout<<endl;
-
         system("cls");
-        cout<<"NO EXISTE APELLIDO..."<<endl;
+        cout << "[X] Error Apellido, No se encontraron registros.";
+        cout << endl;
     }
     cout<<endl;
 }
@@ -74,38 +59,24 @@ void listarPorDni(){
 
     int num;
     cout<<"Ingresar el DNI a buscar: ";
-    cin>>num;
-    cout<<endl;
+    cargarEntero(num);
 
     system("cls");
-
-    const int anchoColumna = 20;
-
-    cout << left << setw(anchoColumna) << "NOMBRE"
-              << setw(anchoColumna) << "APELLIDO"
-              << setw(anchoColumna) << "DNI"
-              << setw(anchoColumna) << "ESPECIALISTA"
-              << setw(15) << "MATRICULA"
-              << setw(anchoColumna) << "TURNO"
-              << setw(anchoColumna) << "HORA"
-              << "\n";
-
+    imprimirEncabezadoPaciente();
     bool banderaListaDni=true;
 
     for(int i=0;i<contPa;i++){
-         pa= archiPa.leerRegistro(i);
+        pa= archiPa.leerRegistro(i);
 
         if(pa.getEstado() && pa.getDni()==num){
             pa.mostrarPaciente();
-
             banderaListaDni=false;
         }
     }
     if(banderaListaDni){
-        cout<<endl;
-
         system("cls");
-        cout<<"NO EXISTE DNI..."<<endl;
+        cout << "[X] Error DNI, No se encontraron registros.";
+        cout << endl;
     }
     cout<<endl;
 }
@@ -116,41 +87,26 @@ void listarMenores(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
     int num;
     cout<<"Ingresar anio actual: ";
-    cin>>num;
-    cout<<endl;
+    cargarEntero(num);
 
     system("cls");
-
-    const int anchoColumna = 20;
-
-    cout << left << setw(anchoColumna) << "NOMBRE"
-              << setw(anchoColumna) << "APELLIDO"
-              << setw(anchoColumna) << "DNI"
-              << setw(anchoColumna) << "ESPECIALISTA"
-              << setw(15) << "MATRICULA"
-              << setw(anchoColumna) << "TURNO"
-              << setw(anchoColumna) << "HORA"
-              << "\n";
-
+    imprimirEncabezadoPaciente();
     bool banderaMenores=true;
 
     for(int i=0;i<contPa;i++){
-         pa= archiPa.leerRegistro(i);
+        pa= archiPa.leerRegistro(i);
 
         if(pa.getEstado() && (num - pa.getFecha().getAnio())<18){
             pa.mostrarPaciente();
-
             banderaMenores=false;
         }
     }
     if(banderaMenores){
-        cout<<endl;
-
         system("cls");
-        cout<<"NO EXISTE DNI..."<<endl;
+        cout << "[X] Error DNI, No se encontraron registros.";
+        cout<<endl;
     }
     cout<<endl;
 }

@@ -9,6 +9,8 @@ using namespace std;
 #include"archivoClassPacientess.h"
 #include"rlutil.h"
 #include "validaciones.h"
+#include "fecha.h"
+
 
 void Turno::setFechaTurno(Fecha fe){
     fechaTurno=fe;
@@ -17,7 +19,6 @@ void Turno::setFechaTurno(Fecha fe){
 void Turno::setHoraTurno(Hora ho){
     horaTurno=ho;
 }
-
 
 Fecha Turno::getFechaTurno(){
     return fechaTurno;
@@ -36,9 +37,7 @@ bool Turno::cargarTurno(int matricula){
     int dia,mes;
 
     cout<<"INGRESE EL DIA DEL POSIBLE TURNO: ";
-    //cargarEntero(dia);
-    cargarDia(dia);
-
+    cargarEntero(dia);
  
     cout<<"INGRESAR EL MES: ";
     cargarEntero(mes);
@@ -104,7 +103,6 @@ bool Turno::cargarTurno(int matricula){
 }
 
 void Turno::mostrarTurno(){
-
     const int anchoColumna = 15;
 
      cout << left << setw(0) << fechaTurno.getDia() << "-"

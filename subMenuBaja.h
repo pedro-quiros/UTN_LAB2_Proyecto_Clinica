@@ -3,14 +3,11 @@
 
 #include"archivoControladores.h"
 #include"archivoControladoresEspecialista.h"
-
 #include"recuadro.h"
 
 void bajasTurnoEspecialista(){
-
     int opcion;
     char titulo[40]= "MENU BAJAS TURNO Y ESPECIALISTA";
-
     recuadro(titulo);
 
     cout<<endl;
@@ -37,9 +34,6 @@ void bajasTurnoEspecialista(){
     default:
             break;
     }
-
 }
-
-
 
 #endif // SUBMENUBAJA_H_INCLUDED

@@ -6,19 +6,32 @@ using namespace std;
 #include"fecha.h"
 #include "validaciones.h"
 
-void Fecha::setDia(int d){
-            if(0<d && d<=31){
-                _dia=d;
-            }
-            else{_dia=0;}
+void Fecha::setDia(int& valor){
+    cargarEntero(valor);
+
+    while (valor < 1 || valor > 31) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 1 y 31: ";
+        cargarEntero(valor);
+    }
+    _dia=valor;
 }
-void Fecha::setMes(int m){
-            if(0<m && m<=12){_mes=m;}
-            else{_mes=0;}
+void Fecha::setMes(int& valor) {
+    cargarEntero(valor);
+
+    while (valor < 1 || valor > 12) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 1 y 12: ";
+        cargarEntero(valor);
+    }
+    _mes = valor;
 }
-void Fecha::setAnio(int a){
-        if(1900<a && a<= 2100){_anio=a;}
-        else{_anio=0;}
+void Fecha::setAnio(int& valor) {
+    cargarEntero(valor);
+
+    while (valor < 1900 || valor > 2100) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 1900 y 2100: ";
+        cargarEntero(valor);
+    }
+    _anio = valor;
 }
 
 int Fecha::getDia(){
@@ -36,21 +49,12 @@ int Fecha::getAnio(){
 bool Fecha::cargarFecha(){
     int dia,mes,anio;
 
-    cout << endl;
-
     cout<<"DIA: ";
-    cargarDia(dia);
-    //cargarEntero(dia);
     setDia(dia);
     cout<<"MES: ";
-    cargarMes(mes);
-    //cargarEntero(mes);
     setMes(mes);
     cout<<"ANIO: ";
-    cargarAnio(anio);
-    //cargarEntero(anio);
     setAnio(anio);
-
 
     return true;
 }

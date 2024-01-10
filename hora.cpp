@@ -1,58 +1,38 @@
 #include<iostream>
 #include <limits>
-
 using namespace std;
 #include"hora.h"
 #include"rlutil.h"
 #include "validaciones.h"
 
-void Hora::setHora(int h){
-     if(8<=h && h<=22){
-        _hora=h;
-     }
-     else{_hora=-1;}
+void Hora::setHora(int& valor) {
+	cargarEntero(valor);
+
+	while (valor < 8 || valor > 22) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 8 y 22: ";
+		cargarEntero(valor);
+	}
+    _hora = valor;
 }
-void Hora::setMinuto(int m){
-    if(0<=m && m<60){
-        _minuto=m;
+
+void Hora::setMinuto(int& valor) {
+    cargarEntero(valor);
+
+    while (valor < 0 || valor > 60) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 0 y 60: ";
+        cargarEntero(valor);
     }
-    else{_minuto=-1;}
+    _minuto = valor;
 }
 
 int Hora::getHora(){return _hora;}
 int Hora::getMinuto(){return _minuto;}
 
 bool Hora::cargarHora(){
-    cout<<endl;
     int hora,minuto;
-
-    rlutil::locate(30, 3);
     cout<<"INGRESAR HORA DEL TURNO: ";
-    rlutil::locate(56, 3);
-    cargarEntero(hora);
-
- 
-    if(hora<8 || hora>22){
-        system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return false;
-    }
-    int ho=4;
-    rlutil::locate(30, ho);
-    cout<<"INGRESAR MINUTOS: ";
-    rlutil::locate(48, ho);
-    cargarEntero(minuto);
-    ho++;
-    
-    if(minuto<0 || minuto>59){
-        system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return false;
-    }
-
     setHora(hora);
+    cout<<"INGRESAR MINUTOS: ";
     setMinuto(minuto);
     return true;
 }

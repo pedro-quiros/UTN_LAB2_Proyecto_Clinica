@@ -22,6 +22,4 @@ class Especialista:public Persona{
         void mostrarEspecialista();
 };
 
-
-
 #endif // ESPECIALISTA_H_INCLUDED

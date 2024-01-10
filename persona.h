@@ -24,5 +24,4 @@ class Persona{
         bool cargarPersona();
 };
 
-
 #endif // PERSONA_H_INCLUDED

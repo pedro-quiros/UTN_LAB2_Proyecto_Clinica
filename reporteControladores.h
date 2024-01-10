@@ -6,12 +6,10 @@
 #include"archivoClassPacientess.h"
 #include"paciente.h"
 
-
 //Prototipos funciones
 void pacientesPorAnio();
 void cantidadDeConsultaPaciente();
 void cantidadPorEspecialidad();
-
 
 void pacientesPorAnio(){
     Especialista es;
@@ -75,8 +73,7 @@ void pacientesPorAnio(){
               && pa.getTurnoAsignado().getFechaTurno().getAnio()>=anio
               && pa.getTurnoAsignado().getFechaTurno().getDia()<=hastaMes
               && pa.getTurnoAsignado().getFechaTurno().getAnio()<=hastaAnio){
-
-                cont++;
+              cont++;
               }
         }
     }
@@ -84,7 +81,6 @@ void pacientesPorAnio(){
     cout << endl;
     cout<<"EN EL PERIODO INDICADO ATENDIO: "<<cont<<" PACIENTES."<<endl;
     cout<<endl;
-
 }
 
 void cantidadDeConsultaPaciente(){
@@ -118,13 +114,8 @@ void cantidadPorEspecialidad(){
     ArchivoPaciente archiPa("turno.dat");
 
     int contPa= archiPa.contarRegistros();
-
-
-
-
     cout << endl;
     int numEspecialidad;
-
 
     rlutil::locate(50, 1);
     cout << "INGRESAR ESPECIALIDAD: " << endl;
@@ -151,31 +142,15 @@ void cantidadPorEspecialidad(){
         return;
     }
 
-
-    system("cls");
-
-
-
-    /*
-    if(num<=0 || num>5){
-        system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return;
-    }
-    */
     system("cls");
 
     int cont=0;
-    //rlutil::locate(50, 1);
     cout<<"ESPECIALIDAD: "<<numEspecialidad<<endl;
-
 
     for(int j=0;j<contPa;j++){
         pa= archiPa.leerRegistro(j);
 
         if(pa.getEspecialista()==numEspecialidad && numEspecialidad!=0){
-
             cont++;
         }
     }
@@ -183,6 +158,5 @@ void cantidadPorEspecialidad(){
     cout<<"LOS ESPECIALISTAS CON ESE NUMERO TUVIERON: "<<cont<<" CONSULTAS."<<endl;
     cout<<endl;
 }
-
 
 #endif // REPORTECONTROLADORES_H_INCLUDED

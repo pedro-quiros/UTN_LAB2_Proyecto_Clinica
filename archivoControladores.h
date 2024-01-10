@@ -42,9 +42,7 @@ void altaTurno(){
            && pa.getTurnoAsignado().getHoraTurno().getMinuto()==
            p.getTurnoAsignado().getHoraTurno().getMinuto()
            ){
-                cout<<endl;
                 cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
-                cout<<endl;
                 bandera=false;
                 return;
         }
@@ -60,9 +58,7 @@ void altaTurno(){
            && pa.getTurnoAsignado().getHoraTurno().getMinuto()==
            p.getTurnoAsignado().getHoraTurno().getMinuto()
            ){
-                cout<<endl;
                 cout << "[X] Ha ocurrido un error, los datos no se guardaron." << endl;
-                cout<<endl;
                 bandera=false;
                 return;
         }
@@ -70,7 +66,6 @@ void altaTurno(){
      }
      if(bandera){
         archiPa.grabarRegistro(p);
-        cout<<endl;
         cout << "[OK] Los datos se guardaron correctamente." << endl;
         cout<<endl;
      }

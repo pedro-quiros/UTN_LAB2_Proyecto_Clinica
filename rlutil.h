@@ -14,7 +14,6 @@
  * See <License>
  */
 
-
 /// Define: RLUTIL_USE_ANSI
 /// Define this to use ANSI escape sequences also on Windows
 /// (defaults to using WinAPI instead).

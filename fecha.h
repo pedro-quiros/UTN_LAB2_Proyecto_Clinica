@@ -6,17 +6,15 @@
         int _dia,_mes,_anio;
 
     public:
-
-        void setDia(int);
-        void setMes(int);
-        void setAnio(int);
+        void setDia(int& valor);
+        void setMes(int& valor);
+        void setAnio(int& valor);
 
         int getDia();
         int getMes();
         int getAnio();
 
         bool cargarFecha();
-
 };
 
 #endif // FECHA_H_INCLUDED

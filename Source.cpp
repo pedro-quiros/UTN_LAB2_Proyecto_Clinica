@@ -17,7 +17,7 @@ using namespace std;
 #include"subMenuReporte.h"
 #include"recuadro.h"
 #include "validaciones.h"
-
+#include "fecha.h"
 #include <chrono>
 #include <ctime>
 
@@ -63,7 +63,6 @@ int main() {
         system("cls");
 
         switch (opc) {
-
         case 1: altasTurnoEspecialista();
             break;
         case 2: bajasTurnoEspecialista();
@@ -76,14 +75,12 @@ int main() {
             break;
         case 6: reporte();
             break;
-
         case 0:
             cout << "[X] Saliendo del programa. Muchas gracias." << endl;
-            return 0;
+         return 0;
             break;
         default:
             cout << "[X] Opcion no valida. Intente nuevamente." << endl;
-            cout << endl;
         }
         system("pause");
     }

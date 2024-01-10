@@ -35,7 +35,6 @@ void consulta(){
     cout << char(175) << " OPCION: ";
     cargarEntero(opcion);
 
-
     system("cls");
 
     switch(opcion){
@@ -43,7 +42,6 @@ void consulta(){
     case 1: consultaPacientePorMedico();
             break;
     case 2: consultaPorDia();
-
             break;
     case 3: consultaPorEspecialidad();
             break;
@@ -58,9 +56,6 @@ void consulta(){
     default:
             break;
     }
-
 }
-
-
 
 #endif // CONSULTA_H_INCLUDED
