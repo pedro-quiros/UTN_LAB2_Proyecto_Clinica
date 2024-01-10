@@ -9,7 +9,6 @@
 void altasTurnoEspecialista(){
     int opcion;
     char titulo[40]= "MENU ALTAS TURNO Y ESPECIALISTA";
-
     recuadro(titulo);
 
     rlutil::locate(51, 5);

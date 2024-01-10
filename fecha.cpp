@@ -49,6 +49,7 @@ int Fecha::getAnio(){
 bool Fecha::cargarFecha(){
     int dia,mes,anio;
 
+    cout << endl;
     cout<<"DIA: ";
     setDia(dia);
     cout<<"MES: ";

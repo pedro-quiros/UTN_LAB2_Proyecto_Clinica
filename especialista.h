@@ -11,7 +11,7 @@ class Especialista:public Persona{
 
     public:
         void setIdMatricula(int);
-        void setEspecialidad(int);
+        void setEspecialidad(int& valor);
         void setEstado(bool);
 
         int getIdMatricula();

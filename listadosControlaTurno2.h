@@ -90,17 +90,10 @@ void consultaPorDia(){
         es = archiEs.leerRegistro(i);
 
         if(es.getEstado()){
-            const int anchoColumna = 20;
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                          << setw(anchoColumna) << "MATRICULA"
-                          << setw(anchoColumna) << "NOMBRE"
-                          << setw(anchoColumna) << "APELLIDO"
-                          << setw(15) << "DNI"
-                          << setw(0) << "FECHA NACIMIENTO"
-                          << "\n";
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -165,18 +158,10 @@ void consultaPorEspecialidad(){
 
         if(es.getEstado() && es.getEspecialidad()== numEspecialidad){
 
-            const int anchoColumna = 20;
-
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                         << setw(anchoColumna) << "MATRICULA"
-                         << setw(anchoColumna) << "NOMBRE"
-                         << setw(anchoColumna) << "APELLIDO"
-                         << setw(15) << "DNI"
-                         << setw(0) << "FECHA NACIMIENTO"
-                         << "\n";
+            imprimirEncabezadoEspecialista();
 
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
@@ -236,14 +221,7 @@ void consultaHorariosOcupados(){
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                         << setw(anchoColumna) << "MATRICULA"
-                         << setw(anchoColumna) << "NOMBRE"
-                         << setw(anchoColumna) << "APELLIDO"
-                         << setw(15) << "DNI"
-                         << setw(0) << "FECHA NACIMIENTO"
-                         << "\n";
-
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -292,13 +270,7 @@ void consultaPorDni(){
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                          << setw(anchoColumna) << "MATRICULA"
-                          << setw(anchoColumna) << "NOMBRE"
-                          << setw(anchoColumna) << "APELLIDO"
-                          << setw(15) << "DNI"
-                          << setw(0) << "FECHA NACIMIENTO"
-                          << "\n";
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -343,13 +315,7 @@ void consultaEspecialistaDni(){
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                         << setw(anchoColumna) << "MATRICULA"
-                         << setw(anchoColumna) << "NOMBRE"
-                         << setw(anchoColumna) << "APELLIDO"
-                         << setw(15) << "DNI"
-                         << setw(0) << "FECHA NACIMIENTO"
-                         << "\n";
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -395,13 +361,7 @@ void consultaPorMatriculaES(){
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                         << setw(anchoColumna) << "MATRICULA"
-                         << setw(anchoColumna) << "NOMBRE"
-                         << setw(anchoColumna) << "APELLIDO"
-                         << setw(15) << "DNI"
-                         << setw(0) << "FECHA NACIMIENTO"
-                         << "\n";
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;

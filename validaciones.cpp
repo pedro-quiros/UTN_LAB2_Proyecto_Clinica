@@ -15,8 +15,6 @@ void cargarEntero(int& valor) {
     cin.ignore();
 }
 
-
-
 void imprimirEncabezadoPaciente() {
     const int anchoColumna = 20;
     cout << left << setw(anchoColumna) << "NOMBRE"
@@ -24,7 +22,20 @@ void imprimirEncabezadoPaciente() {
         << setw(anchoColumna) << "DNI"
         << setw(anchoColumna) << "ESPECIALISTA"
         << setw(15) << "MATRICULA"
-        << setw(anchoColumna) << "TURNO"
+        << setw(anchoColumna) << "TURNO DIA"
         << setw(anchoColumna) << "HORA"
         << "\n";
 }
+
+void imprimirEncabezadoEspecialista() {
+    const int anchoColumna = 20;
+    cout << left << setw(anchoColumna) << "ESPECIALIDAD"
+        << setw(anchoColumna) << "MATRICULA"
+        << setw(anchoColumna) << "NOMBRE"
+        << setw(anchoColumna) << "APELLIDO"
+        << setw(15) << "DNI"
+        << setw(0) << "FECHA NACIMIENTO"
+        << "\n";
+}
+
+

@@ -54,21 +54,13 @@ void bajaLogicaEspecialista(){
 
    int contEs= archiEs.contarRegistros();
 
-   const int anchoColumna = 20;
-
    system("cls");
 
    rlutil::locate(50,1);
    cout<<"ESPECIALISTA A DAR DE BAJA: "<<endl;
    cout<<endl;
 
-   cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                 << setw(anchoColumna) << "MATRICULA"
-                 << setw(anchoColumna) << "NOMBRE"
-                 << setw(anchoColumna) << "APELLIDO"
-                 << setw(15) << "DNI"
-                 << setw(0) << "FECHA NACIMIENTO"
-                 << "\n";
+    imprimirEncabezadoEspecialista();
 
     bool bandera=true;
 
@@ -139,7 +131,6 @@ void modificarEspecialista(){
 
    int contEs= archiEs.contarRegistros();
 
-   const int anchoColumna = 20;
 
    system("cls");
 
@@ -147,13 +138,7 @@ void modificarEspecialista(){
    cout<<"ESPECIALISTA A MODIFICAR: "<<endl;
    cout<<endl;
 
-   cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                 << setw(anchoColumna) << "MATRICULA"
-                 << setw(anchoColumna) << "NOMBRE"
-                 << setw(anchoColumna) << "APELLIDO"
-                 << setw(15) << "DNI"
-                 << setw(0) << "FECHA NACIMIENTO"
-                 << "\n";
+   imprimirEncabezadoEspecialista();
 
     bool bandera=true;
 

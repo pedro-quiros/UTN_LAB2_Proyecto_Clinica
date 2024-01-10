@@ -113,8 +113,6 @@ bool Paciente::cargarPaciente(){
     cout<<"INGRESAR LA MATRICULA DEL ESPECIALISTA: ";
     cin>>ma;
 
-
-
     int banderaMatricula= true;
 
     for(int i=0;i<contEs;i++){

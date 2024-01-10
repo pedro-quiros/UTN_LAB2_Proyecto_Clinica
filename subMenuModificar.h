@@ -10,7 +10,6 @@ void modificarTurnoEspecialista(){
     char titulo[40] = "MENU MODIFICAR TURNO Y ESPECIALISTA";
     recuadro(titulo);
 
-
     rlutil::locate(51, 5);
     cout << "1. MODIFICAR Turno." << endl;
     rlutil::locate(51, 6);
@@ -26,7 +25,6 @@ void modificarTurnoEspecialista(){
     system("cls");
 
     switch(opcion){
-
     case 1: modificarTurno();
             break;
     case 2: modificarEspecialista();
@@ -34,7 +32,6 @@ void modificarTurnoEspecialista(){
     default:
             break;
     }
-
 }
 
 #endif // SUBMENUMODIFICAR_H_INCLUDED

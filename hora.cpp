@@ -30,6 +30,8 @@ int Hora::getMinuto(){return _minuto;}
 
 bool Hora::cargarHora(){
     int hora,minuto;
+
+    cout << endl;
     cout<<"INGRESAR HORA DEL TURNO: ";
     setHora(hora);
     cout<<"INGRESAR MINUTOS: ";

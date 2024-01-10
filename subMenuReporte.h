@@ -11,6 +11,7 @@ void reporte(){
     char titulo[40] = "MENU REPORTES";
     recuadro(titulo);
     cout<<endl;
+
     rlutil::locate(51, 5);
     cout<<"1. Cant. pacientes atendidos en un intervalo de fechas."<<endl;
     rlutil::locate(51, 6);
@@ -28,7 +29,6 @@ void reporte(){
     system("cls");
 
     switch(opcion){
-
     case 1: pacientesPorAnio();
             break;
     case 2: cantidadDeConsultaPaciente();

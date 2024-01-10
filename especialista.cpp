@@ -12,12 +12,20 @@ using namespace std;
 void Especialista::setIdMatricula(int ma){
     idMatricula=ma;
 }
-void Especialista::setEspecialidad(int e){
-    if(0<e && e<=5){
-        especialidad=e;
+
+void Especialista::setEspecialidad(int& valor) {
+    {
+    cargarEntero(valor);
+
+    while (valor < 1 || valor > 5) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 1 y 5: ";
+        cargarEntero(valor);
     }
-    else{especialidad=0;}
+    especialidad = valor;
+    }
 }
+
+
 void Especialista::setEstado(bool e){
       estado=e;
 }
@@ -61,14 +69,6 @@ bool Especialista::cargarEspecialista() {
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);
     cout << char(175) << " OPCION: ";
-    cargarEntero(numEspecialidad);
-
-
-    if (numEspecialidad <= 0 || numEspecialidad > 5) {
-        system("cls");
-        cout << "[X] Opcion no valida. Saliendo del sistema." << endl;
-        return false;
-    }
 
     setEspecialidad(numEspecialidad);
 
@@ -92,7 +92,7 @@ void Especialista::mostrarEspecialista(){
                      << setw(anchoColumna) << idMatricula
                      << setw(anchoColumna) << Persona::getNombre()
                      << setw(anchoColumna) << Persona::getApellido()
-                     << setw(anchoColumna) << Persona::getDni()
+                     << setw(15) << Persona::getDni()
                      << setw(0) << Persona::getFecha().getDia()<<"/"
                      << setw(0) << Persona::getFecha().getMes()<<"/"
                      << setw(0) << Persona::getFecha().getAnio()

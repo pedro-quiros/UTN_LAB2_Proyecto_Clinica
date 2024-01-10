@@ -7,5 +7,6 @@ using namespace std;
 
 void cargarEntero(int& valor);
 void imprimirEncabezadoPaciente();
+void imprimirEncabezadoEspecialista();
 
 #endif // VALIDACION_H

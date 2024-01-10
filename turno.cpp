@@ -76,8 +76,8 @@ bool Turno::cargarTurno(int matricula){
     }
     if(bandera){
         system("cls");
-        cout<<endl;
         cout<<"SIN TURNOS ASIGNADOS..."<<endl;
+        cout << endl;
     }
 
     cout<<endl;
@@ -105,8 +105,8 @@ bool Turno::cargarTurno(int matricula){
 void Turno::mostrarTurno(){
     const int anchoColumna = 15;
 
-     cout << left << setw(0) << fechaTurno.getDia() << "-"
-          << fechaTurno.getMes() << "-"
+     cout << left << setw(0) << fechaTurno.getDia() << "/"
+          << fechaTurno.getMes() << "/"
           << setw(anchoColumna) << fechaTurno.getAnio();
 
      cout << left << setw(0) << horaTurno.getHora() << ":"

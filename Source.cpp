@@ -22,9 +22,6 @@ using namespace std;
 #include <ctime>
 
 int main() {
-    //rlutil::setColor(rlutil::WHITE);
-    //rlutil::setBackgroundColor(rlutil::BLUE);
-
     rlutil::setColor(rlutil::YELLOW);
     rlutil::setBackgroundColor(rlutil::BLACK);
 
