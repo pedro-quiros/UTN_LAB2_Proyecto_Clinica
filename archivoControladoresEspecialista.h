@@ -35,7 +35,9 @@ void altaEspecialista(){
 
      if(bandera){
         archiEs.grabarRegistro(e);
+        system("cls");
         cout << "[OK] El Especialista se guardo correctamente." << endl;
+        cout << endl;
      }
 }
 

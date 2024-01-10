@@ -2,11 +2,9 @@
 #define SUBMENUREPORTE_H_INCLUDED
 
 #include"reporteControladores.h"
-
 #include"recuadro.h"
 
 void reporte(){
-
     int opcion;
     char titulo[40] = "MENU REPORTES";
     recuadro(titulo);

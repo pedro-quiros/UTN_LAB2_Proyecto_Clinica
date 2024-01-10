@@ -4,14 +4,11 @@
 class Hora{
     private:
         int _hora,_minuto;
-
     public:
         void setHora(int& h);
         void setMinuto(int& m);
-
         int getHora();
         int getMinuto();
-
         bool cargarHora();
 };
 

@@ -2,12 +2,10 @@
 #include<cstring>
 #include <limits>
 #include <iomanip>
-
 using namespace std;
 #include"especialista.h"
 #include"rlutil.h"
 #include "validaciones.h"
-
 
 void Especialista::setIdMatricula(int ma){
     idMatricula=ma;
@@ -16,7 +14,6 @@ void Especialista::setIdMatricula(int ma){
 void Especialista::setEspecialidad(int& valor) {
     {
     cargarEntero(valor);
-
     while (valor < 1 || valor > 5) {
         cout << "[X] Entrada no valida. Ingrese un numero entre 1 y 5: ";
         cargarEntero(valor);
@@ -24,7 +21,6 @@ void Especialista::setEspecialidad(int& valor) {
     especialidad = valor;
     }
 }
-
 
 void Especialista::setEstado(bool e){
       estado=e;
@@ -71,7 +67,6 @@ bool Especialista::cargarEspecialista() {
     cout << char(175) << " OPCION: ";
 
     setEspecialidad(numEspecialidad);
-
     system("cls");
 
     rlutil::locate(50, 1);
@@ -80,21 +75,18 @@ bool Especialista::cargarEspecialista() {
         return false;
     }
     estado = true;
-
     return true;
 }
 
 void Especialista::mostrarEspecialista(){
-
      const int anchoColumna = 20;
-
-        cout << left << setw(anchoColumna) << especialidad
-                     << setw(anchoColumna) << idMatricula
-                     << setw(anchoColumna) << Persona::getNombre()
-                     << setw(anchoColumna) << Persona::getApellido()
-                     << setw(15) << Persona::getDni()
-                     << setw(0) << Persona::getFecha().getDia()<<"/"
-                     << setw(0) << Persona::getFecha().getMes()<<"/"
-                     << setw(0) << Persona::getFecha().getAnio()
-                     << "\n";
+     cout << left << setw(anchoColumna) << especialidad
+                  << setw(anchoColumna) << idMatricula
+                  << setw(anchoColumna) << Persona::getNombre()
+                  << setw(anchoColumna) << Persona::getApellido()
+                  << setw(15) << Persona::getDni()
+                  << setw(0) << Persona::getFecha().getDia()<<"/"
+                  << setw(0) << Persona::getFecha().getMes()<<"/"
+                  << setw(0) << Persona::getFecha().getAnio()
+                  << "\n";
 }

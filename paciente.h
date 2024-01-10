@@ -12,16 +12,14 @@ class Paciente:public Persona{
         bool estado;
 
     public:
-        void setEspecialista(int);
+        void setEspecialista(int& valor);
         void setIdMatricula(int);
         void setTurnoAsignado(Turno);
         void setEstado(bool);
-
         int getEspecialista();
         int getIdMatricula();
         Turno getTurnoAsignado();
         bool getEstado();
-
         bool cargarPaciente();
         void mostrarPaciente();
 };

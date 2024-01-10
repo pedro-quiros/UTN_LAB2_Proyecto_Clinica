@@ -33,5 +33,4 @@ void recuadro(const char *titulo) {
     cout << (char)188;
 }
 
-
 #endif // RECUADRO_H_INCLUDED

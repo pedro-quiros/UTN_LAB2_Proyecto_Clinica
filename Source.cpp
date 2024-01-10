@@ -2,12 +2,10 @@
 ///Autor: Pedro Quiros
 ///Grupo 7
 ///Laboratorio de Computacion II -  UTN FRGP
-
 #include <iostream>
 #include<cstring>
 #include <limits>
 using namespace std;
-
 #include"rlutil.h"
 #include"altaTurnoEspecialista.h"
 #include"subListas.h"
@@ -74,10 +72,12 @@ int main() {
             break;
         case 0:
             cout << "[X] Saliendo del programa. Muchas gracias." << endl;
+            cout << endl;
          return 0;
             break;
         default:
             cout << "[X] Opcion no valida. Intente nuevamente." << endl;
+            cout<<endl;
         }
         system("pause");
     }

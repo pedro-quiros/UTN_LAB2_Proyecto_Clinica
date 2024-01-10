@@ -2,23 +2,27 @@
 #include<cstring>
 #include <limits>
 #include <iomanip>
-
 using namespace std;
-
 #include"rlutil.h"
 #include"paciente.h"
 #include"archivoClassPacientess.h"
-
 #include"especialista.h"
 #include"archivoClassEspecialista.h"
 #include "validaciones.h"
 
-void Paciente::setEspecialista(int e){
-     especialista=e;
+void Paciente::setEspecialista(int& valor) {
+    cargarEntero(valor);
+    while (valor < 1 || valor > 5) {
+        cout << "[X] Entrada no valida. Ingrese un numero entre 1 y 5: ";
+        cargarEntero(valor);
+    }
+    especialista = valor;
 }
+
 void Paciente::setIdMatricula(int m){
      idMatricula=m;
 }
+
 void Paciente::setTurnoAsignado(Turno t){
     turnoAsignado=t;
 }
@@ -75,31 +79,16 @@ bool Paciente::cargarPaciente(){
     cout << "-------------------------------" << endl;
     rlutil::locate(51, 9);
     cout << char(175) << " OPCION: ";
-    cargarEntero(numEspecialidad);
-
-    system("cls");
-
-    if(numEspecialidad<=0 || numEspecialidad>5){
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return false;
-    }
 
     setEspecialista(numEspecialidad);
+
+    system("cls");
 
     rlutil::locate(50, 1);
     cout<<"ESPECIALISTAS"<<endl;
     cout<<endl;
 
-    const int anchoColumna = 20;
-
-    cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-              << setw(anchoColumna) << "MATRICULA"
-              << setw(anchoColumna) << "NOMBRE"
-              << setw(anchoColumna) << "APELLIDO"
-              << setw(15) << "DNI"
-              << setw(0) << "FECHA NACIMIENTO"
-              << "\n";
+    imprimirEncabezadoEspecialista();
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
@@ -108,31 +97,27 @@ bool Paciente::cargarPaciente(){
             es.mostrarEspecialista();
         }
     }
-    int ma;
+    int matricula;
     cout<<endl;
     cout<<"INGRESAR LA MATRICULA DEL ESPECIALISTA: ";
-    cin>>ma;
+    cargarEntero(matricula);
 
-    int banderaMatricula= true;
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
-       if(es.getEstado() && es.getIdMatricula()==ma){
-            setIdMatricula(ma);
-            banderaMatricula=false;
+       if(es.getEstado() && es.getIdMatricula() == matricula){
+           setIdMatricula(matricula);   
         }
+       else {
+           //system("cls");
+           cout<<"[X] Matricula no valida."<<endl;
+           cout << endl;
+		   return false;
+       }
     }
-    if(banderaMatricula){
-        system("cls");
-        cout<<"SALIENDO, MAL INGRESO..."<<endl;
-        cout<<endl;
-        return false;
-    }
-
     cout<<endl;
-
-    if(!turnoAsignado.cargarTurno(ma)){
+    if(!turnoAsignado.cargarTurno(matricula)){
         return false;
     }
     estado=true;

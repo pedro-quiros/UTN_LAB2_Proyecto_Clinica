@@ -7,7 +7,6 @@ using namespace std;
 
 void Hora::setHora(int& valor) {
 	cargarEntero(valor);
-
 	while (valor < 8 || valor > 22) {
         cout << "[X] Entrada no valida. Ingrese un numero entre 8 y 22: ";
 		cargarEntero(valor);
@@ -17,7 +16,6 @@ void Hora::setHora(int& valor) {
 
 void Hora::setMinuto(int& valor) {
     cargarEntero(valor);
-
     while (valor < 0 || valor > 60) {
         cout << "[X] Entrada no valida. Ingrese un numero entre 0 y 60: ";
         cargarEntero(valor);
@@ -30,7 +28,6 @@ int Hora::getMinuto(){return _minuto;}
 
 bool Hora::cargarHora(){
     int hora,minuto;
-
     cout << endl;
     cout<<"INGRESAR HORA DEL TURNO: ";
     setHora(hora);

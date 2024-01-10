@@ -12,13 +12,13 @@ void subMenuLista(){
 
     cout << endl;
     rlutil::locate(51, 5);
-    cout << "1. MOSTRAR TODOS LOS TURNOS." << endl;
+    cout << "1. LISTAR TODOS LOS TURNOS." << endl;
     rlutil::locate(51, 6);
-    cout << "2. Listar TURNOS por Apellido de Paciente." << endl;
+    cout << "2. Listar turnos por Apellido de Paciente." << endl;
     rlutil::locate(51, 7);
-    cout << "3. Listar TURNOS por DNI de Paciente." << endl;
+    cout << "3. Listar turnos por DNI de Paciente." << endl;
     rlutil::locate(51, 8);
-    cout << "4. Listar TURNOS Pacientes Menores de Edad." << endl;
+    cout << "4. Listar turnos de Pacientes menores de edad." << endl;
     rlutil::locate(51, 9);
     cout << "5. Listar por Especialistas." << endl;
     rlutil::locate(51, 10);

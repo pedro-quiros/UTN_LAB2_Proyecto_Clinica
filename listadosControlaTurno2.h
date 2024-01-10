@@ -32,32 +32,19 @@ void consultaPacientePorMedico(){
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
-
         if (es.getEstado()){
-
-            const int anchoColumna = 20;
-
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
-            cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                         << setw(anchoColumna) << "MATRICULA"
-                         << setw(anchoColumna) << "NOMBRE"
-                         << setw(anchoColumna) << "APELLIDO"
-                         << setw(15) << "DNI"
-                         << setw(0) << "FECHA NACIMIENTO"
-                         << "\n";
+            imprimirEncabezadoEspecialista();
             es.mostrarEspecialista();
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
-
         for(int j=0;j<contPa;j++){
              pa= archiPa.leerRegistro(j);
-
-            if(es.getEstado() && es.getIdMatricula()==pa.getIdMatricula()){
-
-                    pa.mostrarPaciente();
+             if(es.getEstado() && es.getIdMatricula()==pa.getIdMatricula()){
+                 pa.mostrarPaciente();
             }
         }
     }
@@ -88,7 +75,6 @@ void consultaPorDia(){
     recuadro(titulo);
     for(int i=0;i<contEs;i++){
         es = archiEs.leerRegistro(i);
-
         if(es.getEstado()){
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
@@ -100,8 +86,7 @@ void consultaPorDia(){
         }
 
         for(int j=0;j<contPa;j++){
-             pa= archiPa.leerRegistro(j);
-
+             pa = archiPa.leerRegistro(j);
              if(pa.getEstado() && es.getIdMatricula()==pa.getIdMatricula()
                 && pa.getTurnoAsignado().getFechaTurno().getDia()==dia){
                    pa.mostrarPaciente();
@@ -155,7 +140,6 @@ void consultaPorEspecialidad(){
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
-
         if(es.getEstado() && es.getEspecialidad()== numEspecialidad){
 
             cout<<"\n\n";
@@ -168,13 +152,11 @@ void consultaPorEspecialidad(){
             cout<<"-----------------------------------------------------------"<<endl;
         }
         for(int j=0;j<contPa;j++){
-             pa= archiPa.leerRegistro(j);
-
+             pa = archiPa.leerRegistro(j);
              if(pa.getEstado() && es.getIdMatricula()==pa.getIdMatricula()
                 && pa.getEspecialista()== numEspecialidad){
-
-                    pa.mostrarPaciente();
-                }
+                 pa.mostrarPaciente();
+             }
         }
     }
     cout<<endl;
@@ -215,9 +197,7 @@ void consultaHorariosOcupados(){
         es= archiEs.leerRegistro(i);
 
         if(es.getEstado()){
-
             const int anchoColumna = 20;
-
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -234,9 +214,8 @@ void consultaHorariosOcupados(){
                 && pa.getTurnoAsignado().getFechaTurno().getDia()==dia
                 && pa.getTurnoAsignado().getFechaTurno().getMes()==mes
                 && pa.getTurnoAsignado().getHoraTurno().getHora()==hora){
-
-                    pa.mostrarPaciente();
-                }
+                   pa.mostrarPaciente();
+             }
         }
     }
     cout<<endl;
@@ -263,10 +242,8 @@ void consultaPorDni(){
 
      for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
-
         if(es.getEstado()){
             const int anchoColumna = 20;
-
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
@@ -275,13 +252,10 @@ void consultaPorDni(){
             cout<<"-----------------------------------------------------------";
             cout<<"-----------------------------------------------------------"<<endl;
         }
-
         for(int j=0;j<contPa;j++){
-             pa= archiPa.leerRegistro(j);
-
+            pa= archiPa.leerRegistro(j);
             if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
                && pa.getDni()==dni){
-
                pa.mostrarPaciente();
             }
         }
@@ -322,15 +296,13 @@ void consultaEspecialistaDni(){
         }
 
         for(int j=0;j<contPa;j++){
-             pa= archiPa.leerRegistro(j);
-
+            pa = archiPa.leerRegistro(j);
             if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
                && es.getDni()==dni){
-
                pa.mostrarPaciente();
             }
         }
-     }
+      }
      cout<<endl;
 }
 
@@ -354,9 +326,8 @@ void consultaPorMatriculaES(){
    recuadro(titulo);
 
       for(int i=0;i<contEs;i++){
-        es= archiEs.leerRegistro(i);
-
-        if(es.getEstado() && es.getIdMatricula()==matricula){
+          es= archiEs.leerRegistro(i);
+          if(es.getEstado() && es.getIdMatricula()==matricula){
             const int anchoColumna = 20;
             cout<<"\n\n";
             cout<<"-----------------------------------------------------------";
@@ -369,7 +340,6 @@ void consultaPorMatriculaES(){
 
         for(int j=0;j<contPa;j++){
             pa= archiPa.leerRegistro(j);
-
             if(pa.getEstado() && pa.getIdMatricula()==es.getIdMatricula()
                && es.getIdMatricula()==matricula){
                pa.mostrarPaciente();

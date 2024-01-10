@@ -9,8 +9,7 @@ void cargarEntero(int& valor) {
     while (!(cin >> valor)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "[X] Entrada no valida. Por favor, ingrese un numero entero: ";
+        cout << "[X] Entrada no valida. Ingrese un numero entero: ";
     }
     cin.ignore();
 }

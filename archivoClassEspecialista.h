@@ -10,7 +10,6 @@ public:
     }
     Especialista leerRegistro(int pos){
         Especialista reg;
-        //reg.setCategoria(-1);
         FILE *p;
         p=fopen(nombre, "rb");
         if(p==NULL) return reg;

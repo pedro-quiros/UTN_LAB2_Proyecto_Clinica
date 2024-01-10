@@ -11,6 +11,7 @@ void pacientesPorAnio();
 void cantidadDeConsultaPaciente();
 void cantidadPorEspecialidad();
 
+//Funciones
 void pacientesPorAnio(){
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
@@ -27,25 +28,16 @@ void pacientesPorAnio(){
     rlutil::locate(50, 1);
     cout<<"ESPECIALISTAS: "<<endl;
     cout<<endl;
-
-    const int anchoColumna = 20;
-
-    cout << left << setw(anchoColumna) << "ESPECIALIDAD"
-                 << setw(anchoColumna) << "MATRICULA"
-                 << setw(anchoColumna) << "NOMBRE"
-                 << setw(anchoColumna) << "APELLIDO"
-                 << setw(15) << "DNI"
-                 << setw(0) << "FECHA NACIMIENTO"
-                 << "\n";
+    imprimirEncabezadoEspecialista();
 
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
-
          if (es.getEstado()){
             es.mostrarEspecialista();
         }
     }
 
+    cout << endl;
     cout << endl;
     cout<<"INGRESAR MATRICULA DEL ESPECIALISTA: ";
     cargarEntero(matricula);
@@ -61,7 +53,6 @@ void pacientesPorAnio(){
     cargarEntero(hastaAnio);
 
     int cont=0;
-
     for(int i=0;i<contEs;i++){
         es= archiEs.leerRegistro(i);
 
@@ -77,9 +68,9 @@ void pacientesPorAnio(){
               }
         }
     }
-    cout<<endl;
     cout << endl;
-    cout<<"EN EL PERIODO INDICADO ATENDIO: "<<cont<<" PACIENTES."<<endl;
+    cout << endl;
+    cout<<"EN EL PERIODO INDICADO ATENDIO: "<< cont <<" PACIENTES."<<endl;
     cout<<endl;
 }
 
@@ -95,12 +86,9 @@ void cantidadDeConsultaPaciente(){
     cargarEntero(dni);
 
     int cont=0;
-
     for(int i=0;i<contPa;i++){
         pa= archiPa.leerRegistro(i);
-
         if(pa.getDni()==dni){
-
             cont++;
         }
     }
@@ -135,7 +123,6 @@ void cantidadPorEspecialidad(){
     cout << char(175) << " OPCION: ";
     cargarEntero(numEspecialidad);
 
-
     if (numEspecialidad <= 0 || numEspecialidad > 5) {
         system("cls");
         cout << "[X] Opcion no valida. Saliendo del sistema." << endl;
@@ -146,7 +133,6 @@ void cantidadPorEspecialidad(){
 
     int cont=0;
     cout<<"ESPECIALIDAD: "<<numEspecialidad<<endl;
-
     for(int j=0;j<contPa;j++){
         pa= archiPa.leerRegistro(j);
 

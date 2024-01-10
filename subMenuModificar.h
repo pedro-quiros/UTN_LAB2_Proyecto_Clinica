@@ -13,7 +13,7 @@ void modificarTurnoEspecialista(){
     rlutil::locate(51, 5);
     cout << "1. MODIFICAR Turno." << endl;
     rlutil::locate(51, 6);
-    cout << "2. MODIFICAR Especialista." << endl;
+    cout << "2. MODIFICAR datos de Especialista." << endl;
     rlutil::locate(51, 7);
     cout << "0. Volver." << endl;
     rlutil::locate(51, 8);

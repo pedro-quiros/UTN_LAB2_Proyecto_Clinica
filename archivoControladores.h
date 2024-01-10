@@ -23,7 +23,7 @@ void altaTurno(){
 
      int contPa= archiPa.contarRegistros();
      if(!p.cargarPaciente()){
-        return;
+         return;
      }
 
      bool bandera=true;
@@ -316,7 +316,6 @@ void listaDeMedico(){
     ArchivoEspecialista archiEs("especialista.dat");
 
     int contEs= archiEs.contarRegistros();
-
     imprimirEncabezadoEspecialista();
 
     for(int i=0;i<contEs;i++){

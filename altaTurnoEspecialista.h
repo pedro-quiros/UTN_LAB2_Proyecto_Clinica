@@ -26,7 +26,6 @@ void altasTurnoEspecialista(){
     system("cls");
 
     switch(opcion){
-
     case 1: altaTurno();
             break;
     case 2: altaEspecialista();
