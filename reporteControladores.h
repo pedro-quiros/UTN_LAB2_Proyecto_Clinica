@@ -11,6 +11,8 @@ void pacientesPorAnio();
 void cantidadDeConsultaPaciente();
 void cantidadPorEspecialidad();
 
+
+
 //Funciones
 void pacientesPorAnio(){
     Especialista es;
@@ -36,7 +38,6 @@ void pacientesPorAnio(){
             es.mostrarEspecialista();
         }
     }
-
     cout << endl;
     cout << endl;
     cout<<"INGRESAR MATRICULA DEL ESPECIALISTA: ";
@@ -52,22 +53,28 @@ void pacientesPorAnio(){
     cout<<"INGRESA HASTA QUE ANIO: ";
     cargarEntero(hastaAnio);
 
-    int cont=0;
-    for(int i=0;i<contEs;i++){
-        es= archiEs.leerRegistro(i);
 
-        for(int j=0;j<contPa;j++){
-            pa= archiPa.leerRegistro(j);
 
-           if(es.getIdMatricula()==pa.getIdMatricula() && es.getIdMatricula()==matricula
-              && pa.getTurnoAsignado().getFechaTurno().getMes()>=mes
-              && pa.getTurnoAsignado().getFechaTurno().getAnio()>=anio
-              && pa.getTurnoAsignado().getFechaTurno().getDia()<=hastaMes
-              && pa.getTurnoAsignado().getFechaTurno().getAnio()<=hastaAnio){
-              cont++;
-              }
+    int cont = 0;
+
+    // Leer registros de especialistas y pacientes una vez antes del bucle
+    for (int i = 0; i < contEs; i++) {
+        Especialista es = archiEs.leerRegistro(i);
+
+        for (int j = 0; j < contPa; j++) {
+            Paciente pa = archiPa.leerRegistro(j);
+
+            // Verificar condiciones de turno
+            if (es.getIdMatricula() == pa.getIdMatricula() && es.getIdMatricula() == matricula
+                && pa.getTurnoAsignado().getFechaTurno().getAnio() >= anio
+                && pa.getTurnoAsignado().getFechaTurno().getMes() >= mes
+                && pa.getTurnoAsignado().getFechaTurno().getAnio() <= hastaAnio
+                && pa.getTurnoAsignado().getFechaTurno().getMes() <= hastaMes) {
+                cont++;
+            }
         }
     }
+
     cout << endl;
     cout << endl;
     cout<<"EN EL PERIODO INDICADO ATENDIO: "<< cont <<" PACIENTES."<<endl;
@@ -80,7 +87,6 @@ void cantidadDeConsultaPaciente(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
     int dni;
     cout<<"INGRESE EL DNI DEL PACIENTE: ";
     cargarEntero(dni);

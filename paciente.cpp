@@ -132,8 +132,3 @@ bool Paciente::cargarPaciente() {
                  << setw(anchoColumna);
     turnoAsignado.mostrarTurno();
  }
-
-
-
-
-

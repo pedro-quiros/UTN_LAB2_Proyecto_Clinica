@@ -64,8 +64,11 @@ void consultaPorDia(){
 
     int contPa= archiPa.contarRegistros();
 
-    cout<<endl;
     int dia;
+
+    rlutil::locate(45, 1);
+    cout << "LISTADO DE TURNOS POR DIA: " << endl;
+    cout << endl;
     cout<<"INGRESAR EL DIA: ";
     cargarEntero(dia);
 
@@ -178,7 +181,8 @@ void consultaHorariosOcupados(){
     int dia,mes,hora;
 
     rlutil::locate(45, 1);
-    cout<<"INGRESA DIA/MES/HORA LISTADO DE TODAS LAS CONSULTAS: "<<endl;
+    cout << "LISTADO DE TURNOS POR DIA/MES/HORA: " << endl;
+    cout << endl;
     cout<<"INGRESAR DIA: ";
     cargarEntero(dia);
 
@@ -303,7 +307,7 @@ void consultaEspecialistaDni(){
             }
         }
       }
-     cout<<endl;
+      cout << endl;
 }
 
 void consultaPorMatriculaES(){

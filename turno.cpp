@@ -75,11 +75,9 @@ bool Turno::cargarTurno(int matricula){
     }
     if(bandera){
         system("cls");
-        cout<<"SIN TURNOS ASIGNADOS..."<<endl;
+        cout<<"[OK] Horario disponible, no se encontraron turnos asignados."<<endl;
         cout << endl;
     }
-    cout << endl;
-    cout << endl;
 
     system("pause");
     system("cls");
