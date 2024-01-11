@@ -20,17 +20,15 @@ void listaDeMedico();
 void altaTurno(){
      Paciente p, pa;
      ArchivoPaciente archiPa("turno.dat");
-
      int contPa= archiPa.contarRegistros();
+
      if(!p.cargarPaciente()){
          return;
      }
 
      bool bandera=true;
-
      for(int i=0;i<contPa;i++){
         pa= archiPa.leerRegistro(i);
-
         if(pa.getEstado() && pa.getIdMatricula()==p.getIdMatricula()
            && pa.getTurnoAsignado().getFechaTurno().getDia()==
            p.getTurnoAsignado().getFechaTurno().getDia()
@@ -68,7 +66,8 @@ void altaTurno(){
      }
      if(bandera){
         archiPa.grabarRegistro(p);
-        cout << "[OK] Los datos se guardaron correctamente." << endl;
+        system("cls");
+        cout << "[OK] El Turno se genero satisfactoriamente." << endl;
         cout<<endl;
      }
 }
@@ -115,16 +114,16 @@ void bajaLogicaTurno(){
 
     for(int i=0;i<contPa;i++){
        pa= archiPa.leerRegistro(i);
-
        if(pa.getEstado() && pa.getDni()==dni){
          pa.mostrarPaciente();
          bandera=false;
       }
    }
    if(bandera){
-      cout << "[X] Error, El DNI no se encuentra registrado en la base de datos." << endl;
-      cout<<endl;
-   return;
+       system("cls");
+       cout << "[X] Error, El DNI no se encuentra registrado en la base de datos." << endl;
+       cout<<endl;
+       return;
    }
    cout<<"\n\n";
 
@@ -305,6 +304,7 @@ void modificarTurno(){
         }
         if(bandera){
            archiPa.sobreEscribir(p,pos);
+           system("cls");
            cout << "[OK] Los datos se guardaron correctamente." << endl;
            cout<<endl;
         }

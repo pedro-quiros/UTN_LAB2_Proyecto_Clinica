@@ -92,12 +92,11 @@ void bajaLogicaEspecialista(){
    cout << "-------------------------------" << endl;
    rlutil::locate(51, 11);
    cout << char(175) << " OPCION: ";
-
    cargarEntero(opcion);
  
    if (opcion != 1) {
        system("cls");
-       cout << "[X] Error, saliendo del sistema." << endl;
+       cout << "[X] No se realizo la baja del especialista." << endl;
        cout << endl;
        return;
    }

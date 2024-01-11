@@ -47,20 +47,18 @@ bool Paciente::getEstado(){
     return estado;
 }
 
-bool Paciente::cargarPaciente(){
+bool Paciente::cargarPaciente() {
     int numEspecialidad;
     Especialista es;
     ArchivoEspecialista archiEs("especialista.dat");
 
-    int contEs= archiEs.contarRegistros();
+    int contEs = archiEs.contarRegistros();
 
     rlutil::locate(51, 1);
-    cout<<" INGRESAR DATOS DEL PACIENTE: "<<endl;
-
-    if(!Persona::cargarPersona()){
+    cout << " INGRESAR DATOS DEL PACIENTE: " << endl;
+    if (!Persona::cargarPersona()) {
         return false;
     }
-
     system("cls");
 
     rlutil::locate(50, 1);
@@ -81,63 +79,58 @@ bool Paciente::cargarPaciente(){
     cout << char(175) << " OPCION: ";
 
     setEspecialista(numEspecialidad);
-
     system("cls");
 
     rlutil::locate(50, 1);
-    cout<<"ESPECIALISTAS"<<endl;
-    cout<<endl;
+    cout << "ESPECIALISTAS" << endl;
+    cout << endl;
 
     imprimirEncabezadoEspecialista();
 
-    for(int i=0;i<contEs;i++){
-        es= archiEs.leerRegistro(i);
-
-       if(es.getEstado() && es.getEspecialidad()==numEspecialidad){
+    for (int i = 0; i < contEs; i++) {
+        es = archiEs.leerRegistro(i);
+        if (es.getEstado() && es.getEspecialidad() == numEspecialidad) {
             es.mostrarEspecialista();
         }
     }
     int matricula;
-    cout<<endl;
-    cout<<"INGRESAR LA MATRICULA DEL ESPECIALISTA: ";
+    cout << endl;
+    cout << endl;
+    cout << "INGRESAR LA MATRICULA DEL ESPECIALISTA: ";
     cargarEntero(matricula);
 
-
-    for(int i=0;i<contEs;i++){
-        es= archiEs.leerRegistro(i);
-
-       if(es.getEstado() && es.getIdMatricula() == matricula){
-           setIdMatricula(matricula);   
+    int banderaMatricula = true;
+    for (int i = 0; i < contEs; i++) {
+        es = archiEs.leerRegistro(i);
+        if (es.getEstado() && es.getIdMatricula() == matricula) {
+            setIdMatricula(matricula);
+            banderaMatricula = false;
         }
-       else {
-           //system("cls");
-           cout<<"[X] Matricula no valida."<<endl;
-           cout << endl;
-		   return false;
-       }
+    }
+    if (banderaMatricula) {
+        system("cls");
+        cout << "[X] Error, La matricula no se encuentra registrada en la base de datos." << endl;
+        cout << endl;
+        return false;
     }
     cout<<endl;
     if(!turnoAsignado.cargarTurno(matricula)){
         return false;
     }
-    estado=true;
 
-    cout<<endl;
+    estado=true;
     return true;
 }
 
  void Paciente::mostrarPaciente(){
-    // Configurar ancho de columna para una presentación ordenada
     const int anchoColumna = 20;
-
-        cout << left << setw(anchoColumna) << getNombre()
-                  << setw(anchoColumna) << getApellido()
-                  << setw(anchoColumna) << getDni()
-                  << setw(anchoColumna) << getEspecialista()
-                  << setw(15) << getIdMatricula()
-                  << setw(anchoColumna);
-
-        turnoAsignado.mostrarTurno();
+    cout << left << setw(anchoColumna) << getNombre()
+                 << setw(anchoColumna) << getApellido()
+                 << setw(anchoColumna) << getDni()
+                 << setw(anchoColumna) << getEspecialista()
+                 << setw(15) << getIdMatricula()
+                 << setw(anchoColumna);
+    turnoAsignado.mostrarTurno();
  }
 
 

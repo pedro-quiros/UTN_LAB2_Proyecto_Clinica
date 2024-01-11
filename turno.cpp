@@ -39,7 +39,7 @@ bool Turno::cargarTurno(int matricula){
     cout<<"INGRESE EL DIA DEL POSIBLE TURNO: ";
     cargarEntero(dia);
  
-    cout<<"INGRESAR EL MES: ";
+    cout<<"INGRESE EL MES: ";
     cargarEntero(mes);
 
     cout<<endl;
@@ -69,7 +69,6 @@ bool Turno::cargarTurno(int matricula){
         if(p.getEstado() && p.getTurnoAsignado().getFechaTurno().getDia()==dia
            && p.getTurnoAsignado().getFechaTurno().getMes()==mes
            && p.getIdMatricula()==matricula){
-
            p.mostrarPaciente();
            bandera=false;
         }
@@ -79,8 +78,9 @@ bool Turno::cargarTurno(int matricula){
         cout<<"SIN TURNOS ASIGNADOS..."<<endl;
         cout << endl;
     }
+    cout << endl;
+    cout << endl;
 
-    cout<<endl;
     system("pause");
     system("cls");
 
