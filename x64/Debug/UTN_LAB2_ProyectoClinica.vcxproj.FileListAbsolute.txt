@@ -1,2 +1,3 @@
 C:\Users\Pedro\Documents\UTN\UTN_LAB2_ProyectoClinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
 C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
+C:\Users\pquiros\source\repos\pedro-quiros\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe

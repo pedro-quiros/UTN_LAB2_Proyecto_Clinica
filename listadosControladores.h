@@ -105,7 +105,7 @@ void listarMenores(){
     }
     if(banderaMenores){
         system("cls");
-        cout << "[X] Error DNI, No se encontraron registros.";
+        cout << "[X] No se encontraron registros.";
         cout<<endl;
     }
     cout<<endl;

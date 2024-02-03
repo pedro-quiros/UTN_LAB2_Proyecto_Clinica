@@ -1,18 +1,8 @@
-﻿  especialista.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  fecha.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  hora.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  paciente.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  Source.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\reporteControladores.h(23,14): warning C4101: 'pa': variable local sin referencia
-  turno.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  validaciones.cpp
-  persona.cpp
-C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
-  UTN_LAB2_ProyectoClinica.vcxproj -> C:\Users\Pedro\source\repos\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
+﻿  Source.cpp
+C:\Users\pquiros\source\repos\pedro-quiros\UTN_LAB2_Proyecto_Clinica\rlutil.h(576,19): warning C4267: 'inicializando': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Source.cpp")
+  
+C:\Users\pquiros\source\repos\pedro-quiros\UTN_LAB2_Proyecto_Clinica\reporteControladores.h(23,14): warning C4101: 'pa': variable local sin referencia
+  (compilando archivo de origen "Source.cpp")
+  
+  UTN_LAB2_ProyectoClinica.vcxproj -> C:\Users\pquiros\Source\Repos\pedro-quiros\UTN_LAB2_Proyecto_Clinica\x64\Debug\UTN_LAB2_ProyectoClinica.exe
