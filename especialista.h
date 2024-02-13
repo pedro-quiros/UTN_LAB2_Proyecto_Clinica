@@ -6,7 +6,7 @@
 class Especialista:public Persona{
     private:
         int idMatricula;
-        int especialidad;  //1-clinico 2-urologo 3-ginecologo 4-cardiologo 5-dermatologo
+        int especialidad; 
         bool estado;
 
     public:

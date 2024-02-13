@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Paciente">
+    <Position X="5.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAACAACIAAAABAAAAAAAAABAAAAEAAJoAAAAREAAAA=</HashCode>
+      <FileName>paciente.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Turno">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAEAAAAAAAAAAEAAAQQAAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>turno.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Persona">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAEAAAAAAAQAAAAAwQAJAAAAAAAAAEAAAAIEAAA=</HashCode>
+      <FileName>persona.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hora">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQgAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAAQAA=</HashCode>
+      <FileName>hora.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fecha">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAABAAAAAEQAAdAAAAAAAAAAIAAAAAAEAA=</HashCode>
+      <FileName>fecha.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Especialista">
+    <Position X="9.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EIAACAACIAAAAAAAAAAQAAAAAAAAAAAIoAAAAAABAAE=</HashCode>
+      <FileName>especialista.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
