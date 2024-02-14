@@ -157,7 +157,7 @@ void bajaLogicaTurno(){
         && pa.getTurnoAsignado().getHoraTurno().getHora()==hora
         && pa.getTurnoAsignado().getHoraTurno().getMinuto()==minuto){
 
-         pa.setEstado(false);
+        pa.setEstado(false);
 
          if(archiPa.sobreEscribir(pa,i)){
             system("cls");
@@ -254,7 +254,7 @@ void modificarTurno(){
          if(!p.cargarPaciente()){
            return;
            }
-         //esto agrege
+
          pos=i;
          bandera2=true;
       }

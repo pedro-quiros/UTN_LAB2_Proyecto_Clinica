@@ -53,8 +53,6 @@ void pacientesPorAnio(){
     cout<<"INGRESA HASTA QUE ANIO: ";
     cargarEntero(hastaAnio);
 
-
-
     int cont = 0;
 
     // Leer registros de especialistas y pacientes una vez antes del bucle
@@ -66,18 +64,21 @@ void pacientesPorAnio(){
 
             // Verificar condiciones de turno
             if (es.getIdMatricula() == pa.getIdMatricula() && es.getIdMatricula() == matricula
-                && pa.getTurnoAsignado().getFechaTurno().getAnio() >= anio
-                && pa.getTurnoAsignado().getFechaTurno().getMes() >= mes
-                && pa.getTurnoAsignado().getFechaTurno().getAnio() <= hastaAnio
-                && pa.getTurnoAsignado().getFechaTurno().getMes() <= hastaMes) {
-                cont++;
+                  && (pa.getTurnoAsignado().getFechaTurno().getAnio() > anio
+                  || (pa.getTurnoAsignado().getFechaTurno().getAnio() == anio
+                  && pa.getTurnoAsignado().getFechaTurno().getMes() >= mes))
+                  && (pa.getTurnoAsignado().getFechaTurno().getAnio() < hastaAnio
+                  || (pa.getTurnoAsignado().getFechaTurno().getAnio() == hastaAnio
+                  && pa.getTurnoAsignado().getFechaTurno().getMes() <= hastaMes))
+                  && pa.getEstado()) {
+                  cont++;
             }
         }
     }
 
     cout << endl;
     cout << endl;
-    cout<<"EN EL PERIODO INDICADO ATENDIO: "<< cont <<" PACIENTES."<<endl;
+    cout<<"EN EL PERIODO INDICADO SE CONTABILIZA: "<< cont <<" PACIENTE/S."<<endl;
     cout<<endl;
 }
 
@@ -94,7 +95,7 @@ void cantidadDeConsultaPaciente(){
     int cont=0;
     for(int i=0;i<contPa;i++){
         pa= archiPa.leerRegistro(i);
-        if(pa.getDni()==dni){
+        if(pa.getDni()==dni&&pa.getEstado()){
             cont++;
         }
     }
@@ -142,12 +143,12 @@ void cantidadPorEspecialidad(){
     for(int j=0;j<contPa;j++){
         pa= archiPa.leerRegistro(j);
 
-        if(pa.getEspecialista()==numEspecialidad && numEspecialidad!=0){
+        if(pa.getEspecialista()==numEspecialidad && pa.getEstado() && numEspecialidad != 0) {
             cont++;
         }
     }
     cout<<endl;
-    cout<<"LOS ESPECIALISTAS CON ESE NUMERO TUVIERON: "<<cont<<" CONSULTAS."<<endl;
+    cout<<"CANTIDAD DE CONSULTAS: "<<cont<<endl;
     cout<<endl;
 }
 

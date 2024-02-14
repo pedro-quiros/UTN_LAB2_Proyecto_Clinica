@@ -43,8 +43,11 @@ void consultaPacientePorMedico(){
         }
         for(int j=0;j<contPa;j++){
              pa= archiPa.leerRegistro(j);
-             if(es.getEstado() && es.getIdMatricula()==pa.getIdMatricula()){
-                 pa.mostrarPaciente();
+             
+             if(es.getEstado()&& es.getIdMatricula()==pa.getIdMatricula()){
+                 if (pa.getEstado()) {
+					 pa.mostrarPaciente();
+				 }
             }
         }
     }

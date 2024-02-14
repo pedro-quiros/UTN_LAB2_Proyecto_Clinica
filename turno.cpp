@@ -71,7 +71,7 @@ bool Turno::cargarTurno(int matricula){
            && p.getIdMatricula()==matricula){
            p.mostrarPaciente();
            bandera=false;
-        }
+        }   
     }
     if(bandera){
         system("cls");
@@ -79,6 +79,7 @@ bool Turno::cargarTurno(int matricula){
         cout << endl;
     }
 
+    cout << endl;
     system("pause");
     system("cls");
 
