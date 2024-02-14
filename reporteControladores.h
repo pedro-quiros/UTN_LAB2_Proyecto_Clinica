@@ -11,8 +11,6 @@ void pacientesPorAnio();
 void cantidadDeConsultaPaciente();
 void cantidadPorEspecialidad();
 
-
-
 //Funciones
 void pacientesPorAnio(){
     Especialista es;

@@ -41,7 +41,6 @@ void altaEspecialista(){
      }
 }
 
-
 void bajaLogicaEspecialista(){
     int numMatricula;
     rlutil::locate(51, 1);

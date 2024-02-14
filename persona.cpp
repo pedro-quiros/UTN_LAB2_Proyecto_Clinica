@@ -70,8 +70,3 @@ bool Persona::cargarPersona(){
     cout<<endl;
     return true;
 }
-
-
-
-
-
