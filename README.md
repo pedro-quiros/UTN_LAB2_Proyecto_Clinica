@@ -10,16 +10,11 @@ Este sistema permite gestionar las reservas de turnos en una clínica, facilitan
 * **Gestión de turnos:**
     * Alta, baja, modificación y eliminación de turnos.
     * Visualización y modificación de la agenda.
-    * Reasignación de turnos a otros especialistas.
 * **Administración de especialistas:**
     * Alta, baja y modificación de especialistas.
     * Visualización de la cartelera de profesionales.
-* **Historial de pacientes:**
-    * Registro de pacientes atendidos.
-    * Verificación de si un paciente ya fue atendido.
 * **Información relevante:**
     * Cantidad de pacientes atendidos por especialista en un intervalo de tiempo.
-    * Especialidad más demandada.
 
 **Beneficios:**
 
